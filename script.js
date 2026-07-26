@@ -1,6 +1,7 @@
 const grid = document.getElementById("wishlistGrid");
 const emptyState = document.getElementById("emptyState");
 const searchInput = document.getElementById("searchInput");
+const wishlistFilters = document.getElementById("wishlistFilters");
 const categoryFilters = document.getElementById("categoryFilters");
 const sortSelect = document.getElementById("sortSelect");
 const resultsText = document.getElementById("resultsText");
@@ -9,6 +10,7 @@ const totalValue = document.getElementById("totalValue");
 const purchasedCount = document.getElementById("purchasedCount");
 const themeToggle = document.getElementById("themeToggle");
 
+let selectedWishlist = "All";
 let selectedCategory = "All";
 let searchTerm = "";
 let sortMode = "featured";
@@ -19,7 +21,7 @@ const money = new Intl.NumberFormat("en-GB", {
 });
 
 function escapeHtml(value) {
-  return String(value)
+  return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -33,30 +35,58 @@ function getQuantity(item) {
   return Math.max(1, Math.floor(quantity));
 }
 
+function getWishlists() {
+  return ["All", ...new Set(wishlistItems.map(item => item.wishlist || "General"))];
+}
+
 function getCategories() {
   return ["All", ...new Set(wishlistItems.map(item => item.category))];
 }
 
-function renderFilters() {
-  categoryFilters.innerHTML = getCategories()
-    .map(category => `
+function createFilterButtons(container, values, selectedValue, dataName, onSelect) {
+  container.innerHTML = values
+    .map(value => `
       <button
-        class="filter-pill ${category === selectedCategory ? "active" : ""}"
+        class="filter-pill ${value === selectedValue ? "active" : ""}"
         type="button"
-        data-category="${escapeHtml(category)}"
+        data-${dataName}="${escapeHtml(value)}"
       >
-        ${escapeHtml(category)}
+        ${escapeHtml(value)}
       </button>
     `)
     .join("");
 
-  categoryFilters.querySelectorAll(".filter-pill").forEach(button => {
-    button.addEventListener("click", () => {
-      selectedCategory = button.dataset.category;
+  container.querySelectorAll(".filter-pill").forEach(button => {
+    button.addEventListener("click", () => onSelect(button.dataset[dataName]));
+  });
+}
+
+function renderFilters() {
+  createFilterButtons(
+    wishlistFilters,
+    getWishlists(),
+    selectedWishlist,
+    "wishlist",
+    value => {
+      selectedWishlist = value;
       renderFilters();
       renderWishlist();
-    });
-  });
+      updateStats();
+    }
+  );
+
+  createFilterButtons(
+    categoryFilters,
+    getCategories(),
+    selectedCategory,
+    "category",
+    value => {
+      selectedCategory = value;
+      renderFilters();
+      renderWishlist();
+      updateStats();
+    }
+  );
 }
 
 function sortItems(items) {
@@ -77,18 +107,24 @@ function sortItems(items) {
 
 function filteredItems() {
   const filtered = wishlistItems.filter(item => {
+    const itemWishlist = item.wishlist || "General";
+    const matchesWishlist =
+      selectedWishlist === "All" || itemWishlist === selectedWishlist;
     const matchesCategory =
       selectedCategory === "All" || item.category === selectedCategory;
 
     const searchableText = [
       item.name,
+      item.wishlist,
       item.category,
+      item.brand,
       item.store,
       item.description,
+      item.notes,
       item.priority
     ].join(" ").toLowerCase();
 
-    return matchesCategory && searchableText.includes(searchTerm.toLowerCase());
+    return matchesWishlist && matchesCategory && searchableText.includes(searchTerm.toLowerCase());
   });
 
   return sortItems(filtered);
@@ -114,6 +150,7 @@ function cardMarkup(item) {
   const quantity = getQuantity(item);
   const unitPrice = Number(item.price || 0);
   const lineTotal = unitPrice * quantity;
+  const itemWishlist = item.wishlist || "General";
   const date = new Date(item.dateAdded);
   const formattedDate = Number.isNaN(date.getTime())
     ? ""
@@ -132,6 +169,7 @@ function cardMarkup(item) {
             ${escapeHtml(item.priority)} priority
           </span>
           <span class="badge" title="Quantity set in wishlist-data.js">×${quantity}</span>
+          <span class="badge">${escapeHtml(itemWishlist)}</span>
           ${item.purchased ? '<span class="badge purchased-badge">Purchased</span>' : ""}
         </div>
       </div>
@@ -143,7 +181,9 @@ function cardMarkup(item) {
         </div>
 
         <h3>${escapeHtml(item.name)}</h3>
+        ${item.brand ? `<div class="card-meta" style="justify-content:flex-start;margin-top:8px;">Brand: ${escapeHtml(item.brand)}</div>` : ""}
         <p class="card-description">${escapeHtml(item.description || "")}</p>
+        ${item.notes ? `<div class="item-notes"><strong>Notes:</strong> ${escapeHtml(item.notes)}</div>` : ""}
 
         <div class="card-footer">
           <div>
@@ -176,12 +216,13 @@ function renderWishlist() {
 }
 
 function updateStats() {
-  const totalUnits = wishlistItems.reduce((sum, item) => sum + getQuantity(item), 0);
-  const totalCost = wishlistItems.reduce(
+  const visibleItems = filteredItems();
+  const totalUnits = visibleItems.reduce((sum, item) => sum + getQuantity(item), 0);
+  const totalCost = visibleItems.reduce(
     (sum, item) => sum + Number(item.price || 0) * getQuantity(item),
     0
   );
-  const purchasedUnits = wishlistItems
+  const purchasedUnits = visibleItems
     .filter(item => item.purchased)
     .reduce((sum, item) => sum + getQuantity(item), 0);
 
@@ -200,6 +241,7 @@ function setTheme(theme) {
 searchInput.addEventListener("input", event => {
   searchTerm = event.target.value.trim();
   renderWishlist();
+  updateStats();
 });
 
 sortSelect.addEventListener("change", event => {
