@@ -191,7 +191,7 @@ const wishlistItems = [
     purchased: false,
     store: "Amazon",
     dateAdded: "2026-07-26",
-    image: "https://m.media-amazon.com/images/I/71zXBFY6t+L._AC_SL1500_.jpg",
+    image: "https://m.media-amazon.com/images/I/617DdqPuTzL._AC_SL1500_.jpg",
     link: "https://www.amazon.co.uk/UGREEN-Extension-Cord-Socket-Black/dp/B0FKBH9HWN/ref=sr_1_6?crid=2SG3FU26L107G&dib=eyJ2IjoiMSJ9.2WPnN9YpVOwHl2zF0jvfXANm8AKkirvSB9ElxK2wqD12Di6q1v0OxHQibH8qO70Y8CJWGtOLfe_csCYwI08aAxQnV79OMUKQZf_qdv94sT9nXsPD1l2LmGmR9Zr2-bOLmNjm4igsDUwsw-96-YoYx-XFfFLoPgam0OzeU54PStaShnF9fbW4vKEftIjgEoOPQSfTQx3SKcYmtKI-y3CGJ6mOvCyb3TLYAdyLLMnVFSRBg9AD0DTWOR0qGJIT6r7hm0M-WJ4FpcDyq4wtA_mNOwrGiM-lkHZ9e-G-BDk5fZM.r1AcsXB68oqkIlQzn9SddcnKbPeMJlopOgqftxGLXjs&dib_tag=se&keywords=ugreen+extension+lead&qid=1785064637&sprefix=ugreen+ex%2Caps%2C222&sr=8-6",
     description: "UGREEN Extension Lead with Ports",
     notes: ""
