@@ -9,6 +9,62 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .filter-groups {
+      display: grid;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .filter-group-label {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .filter-group .filter-pills {
+      min-width: 0;
+    }
+
+    .item-notes {
+      margin: -8px 0 20px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      background: var(--accent-soft);
+      color: var(--text);
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1050px) {
+      .filter-groups {
+        grid-column: 1 / -1;
+        grid-row: 2;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .filter-groups {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .filter-group {
+        display: grid;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="page-glow page-glow-one"></div>
@@ -60,7 +116,16 @@
         <input id="searchInput" type="search" placeholder="Search wishlist..." aria-label="Search wishlist" />
       </div>
 
-      <div id="categoryFilters" class="filter-pills" aria-label="Filter by category"></div>
+      <div class="filter-groups">
+        <div class="filter-group">
+          <span class="filter-group-label">Wishlist</span>
+          <div id="wishlistFilters" class="filter-pills" aria-label="Filter by wishlist"></div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-group-label">Category</span>
+          <div id="categoryFilters" class="filter-pills" aria-label="Filter by category"></div>
+        </div>
+      </div>
 
       <select id="sortSelect" class="sort-select" aria-label="Sort wishlist">
         <option value="featured">Featured</option>
@@ -85,7 +150,7 @@
       <div id="emptyState" class="empty-state" hidden>
         <div class="empty-icon">◇</div>
         <h3>No wishes found</h3>
-        <p>Try a different search or category.</p>
+        <p>Try a different search, wishlist or category.</p>
       </div>
     </section>
   </main>
