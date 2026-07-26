@@ -188,7 +188,7 @@ const wishlistItems = [
     price: 16.99,
     quantity: 2,
     priority: "Medium",
-    purchased: true,
+    purchased: false,
     store: "Amazon",
     dateAdded: "2026-07-26",
     image: "https://m.media-amazon.com/images/I/71zXBFY6t+L._AC_SL1500_.jpg",
