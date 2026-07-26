@@ -13,8 +13,6 @@ let selectedCategory = "All";
 let searchTerm = "";
 let sortMode = "featured";
 
-const QUANTITY_STORAGE_KEY = "wishlist-quantities";
-
 const money = new Intl.NumberFormat("en-GB", {
   style: "currency",
   currency: "GBP"
@@ -29,30 +27,10 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function getItemKey(item) {
-  return item.link || item.name;
-}
-
-function loadQuantities() {
-  try {
-    return JSON.parse(localStorage.getItem(QUANTITY_STORAGE_KEY)) || {};
-  } catch {
-    return {};
-  }
-}
-
-let savedQuantities = loadQuantities();
-
 function getQuantity(item) {
-  const savedQuantity = Number(savedQuantities[getItemKey(item)]);
-  const defaultQuantity = Number(item.quantity || 1);
-  const quantity = Number.isFinite(savedQuantity) ? savedQuantity : defaultQuantity;
-  return Math.min(99, Math.max(1, Math.floor(quantity)));
-}
-
-function setQuantity(item, quantity) {
-  savedQuantities[getItemKey(item)] = Math.min(99, Math.max(1, Math.floor(quantity)));
-  localStorage.setItem(QUANTITY_STORAGE_KEY, JSON.stringify(savedQuantities));
+  const quantity = Number(item.quantity ?? 1);
+  if (!Number.isFinite(quantity)) return 1;
+  return Math.max(1, Math.floor(quantity));
 }
 
 function getCategories() {
@@ -85,8 +63,8 @@ function sortItems(items) {
   const priorityRank = { High: 1, Medium: 2, Low: 3 };
 
   return [...items].sort((a, b) => {
-    if (sortMode === "price-low") return a.price - b.price;
-    if (sortMode === "price-high") return b.price - a.price;
+    if (sortMode === "price-low") return Number(a.price || 0) - Number(b.price || 0);
+    if (sortMode === "price-high") return Number(b.price || 0) - Number(a.price || 0);
     if (sortMode === "priority") return priorityRank[a.priority] - priorityRank[b.priority];
     if (sortMode === "newest") return new Date(b.dateAdded) - new Date(a.dateAdded);
 
@@ -110,9 +88,7 @@ function filteredItems() {
       item.priority
     ].join(" ").toLowerCase();
 
-    const matchesSearch = searchableText.includes(searchTerm.toLowerCase());
-
-    return matchesCategory && matchesSearch;
+    return matchesCategory && searchableText.includes(searchTerm.toLowerCase());
   });
 
   return sortItems(filtered);
@@ -131,40 +107,6 @@ function imageMarkup(item) {
   }
 
   return `<div class="image-placeholder">${escapeHtml(item.name.charAt(0))}</div>`;
-}
-
-function quantityMarkup(item) {
-  const quantity = getQuantity(item);
-  const encodedKey = encodeURIComponent(getItemKey(item));
-
-  return `
-    <div
-      class="quantity-control"
-      aria-label="Quantity for ${escapeHtml(item.name)}"
-      style="display:flex;align-items:center;gap:10px;margin:0 0 18px;"
-    >
-      <span style="color:var(--muted);font-size:.86rem;font-weight:700;">Quantity</span>
-      <div style="display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface-solid);">
-        <button
-          type="button"
-          data-quantity-action="decrease"
-          data-item-key="${escapeHtml(encodedKey)}"
-          aria-label="Decrease quantity"
-          ${quantity <= 1 ? "disabled" : ""}
-          style="width:38px;height:38px;border:0;background:transparent;color:var(--text);cursor:${quantity <= 1 ? "not-allowed" : "pointer"};font-size:1.15rem;opacity:${quantity <= 1 ? ".4" : "1"};"
-        >−</button>
-        <strong style="display:grid;place-items:center;min-width:38px;height:38px;border-left:1px solid var(--line);border-right:1px solid var(--line);font-family:'Space Grotesk',sans-serif;">${quantity}</strong>
-        <button
-          type="button"
-          data-quantity-action="increase"
-          data-item-key="${escapeHtml(encodedKey)}"
-          aria-label="Increase quantity"
-          ${quantity >= 99 ? "disabled" : ""}
-          style="width:38px;height:38px;border:0;background:transparent;color:var(--text);cursor:${quantity >= 99 ? "not-allowed" : "pointer"};font-size:1.15rem;opacity:${quantity >= 99 ? ".4" : "1"};"
-        >+</button>
-      </div>
-    </div>
-  `;
 }
 
 function cardMarkup(item) {
@@ -189,6 +131,7 @@ function cardMarkup(item) {
           <span class="badge priority-${escapeHtml(item.priority.toLowerCase())}">
             ${escapeHtml(item.priority)} priority
           </span>
+          <span class="badge" title="Quantity set in wishlist-data.js">×${quantity}</span>
           ${item.purchased ? '<span class="badge purchased-badge">Purchased</span>' : ""}
         </div>
       </div>
@@ -202,12 +145,10 @@ function cardMarkup(item) {
         <h3>${escapeHtml(item.name)}</h3>
         <p class="card-description">${escapeHtml(item.description || "")}</p>
 
-        ${quantityMarkup(item)}
-
         <div class="card-footer">
           <div>
             <strong class="price">${money.format(lineTotal)}</strong>
-            ${quantity > 1 ? `<div class="card-meta">${money.format(unitPrice)} each</div>` : ""}
+            ${quantity > 1 ? `<div class="card-meta">${money.format(unitPrice)} each · ${quantity} wanted</div>` : ""}
             ${formattedDate ? `<div class="card-meta">Added ${formattedDate}</div>` : ""}
           </div>
 
@@ -263,20 +204,6 @@ searchInput.addEventListener("input", event => {
 
 sortSelect.addEventListener("change", event => {
   sortMode = event.target.value;
-  renderWishlist();
-});
-
-grid.addEventListener("click", event => {
-  const button = event.target.closest("[data-quantity-action]");
-  if (!button) return;
-
-  const key = decodeURIComponent(button.dataset.itemKey);
-  const item = wishlistItems.find(wishlistItem => getItemKey(wishlistItem) === key);
-  if (!item) return;
-
-  const change = button.dataset.quantityAction === "increase" ? 1 : -1;
-  setQuantity(item, getQuantity(item) + change);
-  updateStats();
   renderWishlist();
 });
 
