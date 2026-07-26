@@ -13,6 +13,8 @@ let selectedCategory = "All";
 let searchTerm = "";
 let sortMode = "featured";
 
+const QUANTITY_STORAGE_KEY = "wishlist-quantities";
+
 const money = new Intl.NumberFormat("en-GB", {
   style: "currency",
   currency: "GBP"
@@ -25,6 +27,32 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function getItemKey(item) {
+  return item.link || item.name;
+}
+
+function loadQuantities() {
+  try {
+    return JSON.parse(localStorage.getItem(QUANTITY_STORAGE_KEY)) || {};
+  } catch {
+    return {};
+  }
+}
+
+let savedQuantities = loadQuantities();
+
+function getQuantity(item) {
+  const savedQuantity = Number(savedQuantities[getItemKey(item)]);
+  const defaultQuantity = Number(item.quantity || 1);
+  const quantity = Number.isFinite(savedQuantity) ? savedQuantity : defaultQuantity;
+  return Math.min(99, Math.max(1, Math.floor(quantity)));
+}
+
+function setQuantity(item, quantity) {
+  savedQuantities[getItemKey(item)] = Math.min(99, Math.max(1, Math.floor(quantity)));
+  localStorage.setItem(QUANTITY_STORAGE_KEY, JSON.stringify(savedQuantities));
 }
 
 function getCategories() {
@@ -62,7 +90,6 @@ function sortItems(items) {
     if (sortMode === "priority") return priorityRank[a.priority] - priorityRank[b.priority];
     if (sortMode === "newest") return new Date(b.dateAdded) - new Date(a.dateAdded);
 
-    // Featured: unpurchased first, then priority, then newest
     if (a.purchased !== b.purchased) return Number(a.purchased) - Number(b.purchased);
     const priorityDifference = priorityRank[a.priority] - priorityRank[b.priority];
     if (priorityDifference !== 0) return priorityDifference;
@@ -106,8 +133,45 @@ function imageMarkup(item) {
   return `<div class="image-placeholder">${escapeHtml(item.name.charAt(0))}</div>`;
 }
 
+function quantityMarkup(item) {
+  const quantity = getQuantity(item);
+  const encodedKey = encodeURIComponent(getItemKey(item));
+
+  return `
+    <div
+      class="quantity-control"
+      aria-label="Quantity for ${escapeHtml(item.name)}"
+      style="display:flex;align-items:center;gap:10px;margin:0 0 18px;"
+    >
+      <span style="color:var(--muted);font-size:.86rem;font-weight:700;">Quantity</span>
+      <div style="display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface-solid);">
+        <button
+          type="button"
+          data-quantity-action="decrease"
+          data-item-key="${escapeHtml(encodedKey)}"
+          aria-label="Decrease quantity"
+          ${quantity <= 1 ? "disabled" : ""}
+          style="width:38px;height:38px;border:0;background:transparent;color:var(--text);cursor:${quantity <= 1 ? "not-allowed" : "pointer"};font-size:1.15rem;opacity:${quantity <= 1 ? ".4" : "1"};"
+        >−</button>
+        <strong style="display:grid;place-items:center;min-width:38px;height:38px;border-left:1px solid var(--line);border-right:1px solid var(--line);font-family:'Space Grotesk',sans-serif;">${quantity}</strong>
+        <button
+          type="button"
+          data-quantity-action="increase"
+          data-item-key="${escapeHtml(encodedKey)}"
+          aria-label="Increase quantity"
+          ${quantity >= 99 ? "disabled" : ""}
+          style="width:38px;height:38px;border:0;background:transparent;color:var(--text);cursor:${quantity >= 99 ? "not-allowed" : "pointer"};font-size:1.15rem;opacity:${quantity >= 99 ? ".4" : "1"};"
+        >+</button>
+      </div>
+    </div>
+  `;
+}
+
 function cardMarkup(item) {
   const linkAvailable = Boolean(item.link);
+  const quantity = getQuantity(item);
+  const unitPrice = Number(item.price || 0);
+  const lineTotal = unitPrice * quantity;
   const date = new Date(item.dateAdded);
   const formattedDate = Number.isNaN(date.getTime())
     ? ""
@@ -138,9 +202,12 @@ function cardMarkup(item) {
         <h3>${escapeHtml(item.name)}</h3>
         <p class="card-description">${escapeHtml(item.description || "")}</p>
 
+        ${quantityMarkup(item)}
+
         <div class="card-footer">
           <div>
-            <strong class="price">${money.format(item.price)}</strong>
+            <strong class="price">${money.format(lineTotal)}</strong>
+            ${quantity > 1 ? `<div class="card-meta">${money.format(unitPrice)} each</div>` : ""}
             ${formattedDate ? `<div class="card-meta">Added ${formattedDate}</div>` : ""}
           </div>
 
@@ -160,18 +227,26 @@ function cardMarkup(item) {
 
 function renderWishlist() {
   const items = filteredItems();
+  const shownUnits = items.reduce((sum, item) => sum + getQuantity(item), 0);
 
   grid.innerHTML = items.map(cardMarkup).join("");
   emptyState.hidden = items.length !== 0;
-  resultsText.textContent = `${items.length} ${items.length === 1 ? "item" : "items"} shown`;
+  resultsText.textContent = `${items.length} ${items.length === 1 ? "item" : "items"} shown · ${shownUnits} ${shownUnits === 1 ? "unit" : "units"}`;
 }
 
 function updateStats() {
-  itemCount.textContent = wishlistItems.length;
-  totalValue.textContent = money.format(
-    wishlistItems.reduce((sum, item) => sum + Number(item.price || 0), 0)
+  const totalUnits = wishlistItems.reduce((sum, item) => sum + getQuantity(item), 0);
+  const totalCost = wishlistItems.reduce(
+    (sum, item) => sum + Number(item.price || 0) * getQuantity(item),
+    0
   );
-  purchasedCount.textContent = wishlistItems.filter(item => item.purchased).length;
+  const purchasedUnits = wishlistItems
+    .filter(item => item.purchased)
+    .reduce((sum, item) => sum + getQuantity(item), 0);
+
+  itemCount.textContent = totalUnits;
+  totalValue.textContent = money.format(totalCost);
+  purchasedCount.textContent = purchasedUnits;
 }
 
 function setTheme(theme) {
@@ -188,6 +263,20 @@ searchInput.addEventListener("input", event => {
 
 sortSelect.addEventListener("change", event => {
   sortMode = event.target.value;
+  renderWishlist();
+});
+
+grid.addEventListener("click", event => {
+  const button = event.target.closest("[data-quantity-action]");
+  if (!button) return;
+
+  const key = decodeURIComponent(button.dataset.itemKey);
+  const item = wishlistItems.find(wishlistItem => getItemKey(wishlistItem) === key);
+  if (!item) return;
+
+  const change = button.dataset.quantityAction === "increase" ? 1 : -1;
+  setQuantity(item, getQuantity(item) + change);
+  updateStats();
   renderWishlist();
 });
 
