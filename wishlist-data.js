@@ -13,6 +13,10 @@
   price:
   - Enter numbers only. Example: 79.99
 
+  quantity:
+  - Enter how many of the item you want. Example: 2
+  - Use a whole number between 1 and 99.
+
   priority:
   - Use "High", "Medium" or "Low"
 
@@ -25,6 +29,7 @@ const wishlistItems = [
     name: "Gigabyte GS32QCA 31.5 QHD Curved Gaming Monitor",
     category: "Technology",
     price: 199,
+    quantity: 1,
     priority: "High",
     purchased: false,
     store: "Currys",
@@ -37,19 +42,20 @@ const wishlistItems = [
     name: "Tapo L530B Smart Bulb B22",
     category: "Lighting",
     price: 7.99,
+    quantity: 1,
     priority: "Low",
     purchased: false,
     store: "Amazon",
     dateAdded: "2026-07-24",
     image: "https://m.media-amazon.com/images/I/71BBEvO36ML._AC_SL1500_.jpg",
-    link: "amazon.co.uk/TP-LINK-Tapo-Colour-Changeable-Required-L530B/dp/B08JZHXQC4/ref=sr_1_4?crid=2JPW6PZHYS8A0&dib=eyJ2IjoiMSJ9.7-mhOPgzAK_E0zT3wCB9E0BEuwSccTSHA7b8b1ORfy9DjKOwEUx6U04LE5YoPxiXXJI9jYBd9-PxaQMX11pe8xdXKp7vJvmQeoRvKM1C0CmIgriK4yX9XQFr4m2lT_ynYNiTKD06q8HBAUyh-pzOhtLerHO6W80Ot9HCBw8e-_N-me5v-QAtgQxpVFNTdGqMERok6TfS3HzaPzZB3ZV-vvVVqm6P0bMsZPoa-aM_r342Npozt5qqDl0wMVUZIbeGQZYVGLRXegRtpfO5zqNRs_M4CiJcvIsqiTcTxK5sOm4.i7mGvGrkSGK5DeZTN_Or9LZtYyfShd6vjGebIbtNhaM&dib_tag=se&keywords=Tapo+l530b&qid=1785059553&sprefix=tapo+l530b%2Caps%2C221&sr=8-4",
+    link: "https://www.amazon.co.uk/TP-LINK-Tapo-Colour-Changeable-Required-L530B/dp/B08JZHXQC4",
     description: "Light Bulb"
   },
-  const newWishlistItems = [
   {
     name: "Wooden Phone Docking Station & Desk Organiser",
     category: "Home",
     price: null,
+    quantity: 1,
     priority: "Medium",
     purchased: false,
     store: "Amazon",
@@ -62,6 +68,7 @@ const wishlistItems = [
     name: "IVANKY VESA Certified DisplayPort Cable 2m",
     category: "Technology",
     price: null,
+    quantity: 1,
     priority: "Medium",
     purchased: false,
     store: "Amazon",
@@ -74,6 +81,7 @@ const wishlistItems = [
     name: "UGREEN Cat 6 Braided Ethernet Cable 1m",
     category: "Technology",
     price: null,
+    quantity: 1,
     priority: "Medium",
     purchased: false,
     store: "Amazon",
@@ -86,6 +94,7 @@ const wishlistItems = [
     name: "Corsair RM850e 850W Fully Modular Power Supply",
     category: "Technology",
     price: null,
+    quantity: 1,
     priority: "High",
     purchased: false,
     store: "Amazon",
@@ -98,6 +107,7 @@ const wishlistItems = [
     name: "POWEROWL 16 x AA & AAA Rechargeable Batteries",
     category: "Technology",
     price: 16.99,
+    quantity: 1,
     priority: "Medium",
     purchased: false,
     store: "Amazon",
@@ -110,6 +120,7 @@ const wishlistItems = [
     name: "POWEROWL AA & AAA Rechargeable Batteries with 8-Slot Charger",
     category: "Technology",
     price: 14.99,
+    quantity: 1,
     priority: "Medium",
     purchased: false,
     store: "Amazon",
@@ -122,6 +133,7 @@ const wishlistItems = [
     name: "Gigabyte GS25F2A 24.5-inch Full HD Gaming Monitor",
     category: "Technology",
     price: 99,
+    quantity: 1,
     priority: "High",
     purchased: false,
     store: "Currys",
