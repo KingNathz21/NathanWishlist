@@ -294,7 +294,7 @@ const wishlistItems = [
   },
           {
     name: "MALM Bed frame, high, dark grey/Luröy, Standard Double",
-    wishlist: "General",
+    wishlist: "Bedroom",
     category: "Furniture",
     brand: "IKEA",
     price: 179,
@@ -310,7 +310,7 @@ const wishlistItems = [
   },   
           {
     name: "VESTERÖY Pocket sprung mattress, medium firm/light blue, Standard Double",
-    wishlist: "General",
+    wishlist: "Bedroom",
     category: "Furniture",
     brand: "IKEA",
     price: 199,
@@ -326,7 +326,7 @@ const wishlistItems = [
   }, 
           {
     name: "KNARREVIK Bedside table, black, 42x34x52 cm",
-    wishlist: "General",
+    wishlist: "Bedroom",
     category: "Furniture",
     brand: "IKEA",
     price: 12,
@@ -342,7 +342,7 @@ const wishlistItems = [
   },  
           {
     name: "LACK Wall shelf, black-brown, 110x26 cm",
-    wishlist: "General",
+    wishlist: "Bedroom",
     category: "Furniture",
     brand: "IKEA",
     price: 15,
@@ -358,7 +358,7 @@ const wishlistItems = [
   }, 
           {
     name: "ALEX Drawer unit, dark grey, 36x70 cm",
-    wishlist: "General",
+    wishlist: "Bedroom",
     category: "Furniture",
     brand: "IKEA",
     price: 70,
@@ -374,7 +374,7 @@ const wishlistItems = [
   }, 
             {
     name: "ALEX Storage unit, dark grey, 36x70 cm",
-    wishlist: "General",
+    wishlist: "Bedroom",
     category: "Furniture",
     brand: "IKEA",
     price: 45,
@@ -390,7 +390,7 @@ const wishlistItems = [
   },   
             {
     name: "LINNMON Table top, white stained oak effect, 100x60 cm",
-    wishlist: "General",
+    wishlist: "Bedroom",
     category: "Furniture",
     brand: "IKEA",
     price: 15,
@@ -530,6 +530,6 @@ const wishlistItems = [
     image: "https://media.currys.biz/i/currysprod/10242224?$l-large$&fmt=auto",
     link: "https://www.currys.co.uk/products/xbox-series-x-replica-drinks-cooler-4.5-litres-black-and-green-10242224.html?searchTerm=xbox%20rep",
     description: "",
-    notes: "Usually on Sale."
+    notes: ""
   },            
 ];
