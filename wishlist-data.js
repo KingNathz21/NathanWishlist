@@ -239,7 +239,7 @@ const wishlistItems = [
     purchased: false,
     store: "Amazon",
     dateAdded: "2026-07-26",
-    image: "https://www.amazon.co.uk/gp/product/B07ZNRNT3C/ref=ox_sc_act_image_13?smid=A3CXTSOTCRTJYX&psc=1",
+    image: "https://m.media-amazon.com/images/I/61ZCBQ5YAtL._AC_SY300_SX300_QL70_ML2_.jpg",
     link: "https://www.amazon.co.uk/gp/product/B07ZNRNT3C/ref=ox_sc_act_title_13?smid=A3CXTSOTCRTJYX&psc=1",
     description: "Dual Monitor Arm ",
     notes: ""
@@ -255,7 +255,7 @@ const wishlistItems = [
     purchased: false,
     store: "Amazon",
     dateAdded: "2026-07-26",
-    image: "https://www.amazon.co.uk/gp/product/B07H7JCCKM/ref=ox_sc_act_title_14?smid=AXZ3JQ1GVFPIF&psc=1",
+    image: "https://m.media-amazon.com/images/I/61Ps7-9TExL._AC_SY300_SX300_QL70_ML2_.jpg",
     link: "https://www.amazon.co.uk/gp/product/B07H7JCCKM/ref=ox_sc_act_title_14?smid=AXZ3JQ1GVFPIF&psc=1",
     description: "HDMI Splitter",
     notes: ""
