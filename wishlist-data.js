@@ -515,5 +515,21 @@ const wishlistItems = [
     link: "https://www.boohooman.com/product/boohooman-oversized-lightening-mcqueen-license-print-t-shirt_cmm31086?colour=black",
     description: "",
     notes: "Usually on Sale."
-  },          
+  }, 
+            {
+    name: "XBOX Series X Replica Drinks Cooler - 4.5 litres, Black & Green",
+    wishlist: "General",
+    category: "Appliances",
+    brand: "",
+    price: 24.99,
+    quantity: 1,
+    priority: "High",
+    purchased: false,
+    store: "Currys",
+    dateAdded: "2026-07-26",
+    image: "https://media.currys.biz/i/currysprod/10242224?$l-large$&fmt=auto",
+    link: "https://www.currys.co.uk/products/xbox-series-x-replica-drinks-cooler-4.5-litres-black-and-green-10242224.html?searchTerm=xbox%20rep",
+    description: "",
+    notes: "Usually on Sale."
+  },            
 ];
