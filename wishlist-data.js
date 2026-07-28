@@ -675,5 +675,5 @@ const wishlistItems = [
     link: "https://www.jdsports.co.uk/product/black-nike-tech-mix-shorts/19744922/",
     description: "",
     notes: ""
-  }, 
+  }
 ];
