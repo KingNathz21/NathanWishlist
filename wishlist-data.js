@@ -517,18 +517,18 @@ const wishlistItems = [
     notes: "Usually on Sale."
   }, 
             {
-    name: "XBOX Series X Replica Drinks Cooler - 4.5 litres, Black & Green",
+    name: "APPLE MacBook Air 13.6" (2026) - M5, 512 GB SSD, RAM 16 GB, Midnight",
     wishlist: "General",
-    category: "Appliances",
-    brand: "",
-    price: 24.99,
+    category: "Technology",
+    brand: "Apple",
+    price: 1299,
     quantity: 1,
     priority: "High",
     purchased: false,
     store: "Currys",
     dateAdded: "2026-07-26",
     image: "https://media.currys.biz/i/currysprod/10242224?$l-large$&fmt=auto",
-    link: "https://www.currys.co.uk/products/xbox-series-x-replica-drinks-cooler-4.5-litres-black-and-green-10242224.html?searchTerm=xbox%20rep",
+    link: "https://www.currys.co.uk/products/apple-macbook-air-13.6-2026-m5-512-gb-ssd-ram-16-gb-midnight-10292806.html",
     description: "",
     notes: ""
   },            
