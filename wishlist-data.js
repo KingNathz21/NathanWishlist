@@ -527,7 +527,7 @@ const wishlistItems = [
     purchased: false,
     store: "Currys",
     dateAdded: "2026-07-26",
-    image: "https://media.currys.biz/i/currysprod/10242224?$l-large$&fmt=auto",
+    image: "https://media.currys.biz/i/currysprod/10292806?$l-large$&fmt=auto",
     link: "https://www.currys.co.uk/products/apple-macbook-air-13.6-2026-m5-512-gb-ssd-ram-16-gb-midnight-10292806.html",
     description: "",
     notes: ""
@@ -543,11 +543,27 @@ const wishlistItems = [
     purchased: false,
     store: "JD Sports",
     dateAdded: "2026-07-26",
-    image: "https://i8.amplience.net/i/jpl/jd_030664_a?$prod404enGB$&qlt=default&fmt=auto&w=589&h=418",
-    link: "https://www.jdsports.co.uk/product/white-nike-air-force-1-low/1267679/",
+    image: "https://i8.amplience.net/i/jpl/jd_751993_b?$prod404enGB$&qlt=default&fmt=auto&w=589&h=418",
+    link: "https://www.jdsports.co.uk/product/white-nike-air-force-1-low/19685420/?cm_mmc=googleshop-_-google-_-shopping-_-pla&applink=1&gad_source=1&gad_campaignid=23602599060&gclid=CjwKCAjwpqHTBhAcEiwAj2AfusvbzOxzUHX45jvfBTiVV-91dHxnLLf9uGvRA3BIJ4xckjruQ8B8MhoCEyUQAvD_BwE",
     description: "",
     notes: ""
   },  
+             {
+    name: "Air Force 1 Low",
+    wishlist: "Clothing",
+    category: "Clothing",
+    brand: "Nike",
+    price: 85,
+    quantity: 1,
+    priority: "High",
+    purchased: false,
+    store: "Foot Locker",
+    dateAdded: "2026-07-26",
+    image: "https://assets.footlocker.com/is/image/FLDM/314109070004_01?fmt=webp-alpha&bfc=on&wid=500&hei=500",
+    link: "https://www.footlocker.co.uk/en/product/~/314109070004.html?channable=03fda0696400333134313039303730303034313030f6&utm_source=google&utm_medium=cpc&utm_campaign=_1%3Auk_2%3Aperformance_3%3Agoogle_4%3Ado_5%3Ashopping_6%3Aconversion_7%3Amix_8%3Aalways%20on_9%3Amultiple_10%3Ana_16%3Abranded&utm_id=19541007735&gad_source=1&gad_campaignid=19541007735&gclid=CjwKCAjwpqHTBhAcEiwAj2AfugkQCeklEweNWzhQU8MpUlrzyxzvpOhB4Yrs0mOvrdFOx2Gb4OeQWRoC6GAQAvD_BwE",
+    description: "",
+    notes: ""
+  },   
             {
     name: "Air Force 1 Low",
     wishlist: "Clothing",
@@ -675,5 +691,37 @@ const wishlistItems = [
     link: "https://www.jdsports.co.uk/product/black-nike-tech-mix-shorts/19744922/",
     description: "",
     notes: ""
-  }
+  },
+               {
+    name: "Foundation Shorts",
+    wishlist: "Clothing",
+    category: "Clothing",
+    brand: "Nike",
+    price: 25,
+    quantity: 1,
+    priority: "High",
+    purchased: false,
+    store: "JD Sports",
+    dateAdded: "2026-07-26",
+    image: "https://i8.amplience.net/i/jpl/jd_788870_b?$prod404enGB$&qlt=default&fmt=auto&w=589&h=752",
+    link: "https://www.jdsports.co.uk/product/grey-nike-foundation-shorts/19749011/?cm_mmc=googleshop-_-google-_-shopping-_-pla&applink=1&gad_source=1&gad_campaignid=23602599060&gclid=CjwKCAjwpqHTBhAcEiwAj2AfujRSkFrjXNICErcbc0m0lwMnVix9VEKRqyd0-IbWoP_SsaDtfoDNdhoCg6UQAvD_BwE",
+    description: "",
+    notes: ""
+  }, 
+               {
+    name: "Woven Cargo Shorts",
+    wishlist: "Clothing",
+    category: "Clothing",
+    brand: "Nike",
+    price: 45,
+    quantity: 1,
+    priority: "High",
+    purchased: false,
+    store: "JD Sports",
+    dateAdded: "2026-07-26",
+    image: "https://i8.amplience.net/i/jpl/jd_761404_b?$prod404enGB$&qlt=default&fmt=auto&w=589&h=752",
+    link: "https://www.jdsports.co.uk/product/black-nike-woven-cargo-shorts/19693760/",
+    description: "",
+    notes: ""
+  },   
 ];
