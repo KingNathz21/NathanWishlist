@@ -517,7 +517,7 @@ const wishlistItems = [
     notes: "Usually on Sale."
   }, 
             {
-    name: "APPLE MacBook Air 13.6" (2026) - M5, 512 GB SSD, RAM 16 GB, Midnight",
+    name: "APPLE MacBook Air 13.6 (2026) - M5, 512 GB SSD, RAM 16 GB, Midnight",
     wishlist: "General",
     category: "Technology",
     brand: "Apple",
