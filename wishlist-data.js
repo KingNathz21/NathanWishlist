@@ -38,7 +38,7 @@
 const wishlistItems = [
   {
     name: "Gigabyte GS32QCA 31.5 QHD Curved Gaming Monitor",
-    wishlist: "General",
+    wishlist: "Gaming",
     category: "Technology",
     brand: "Gigabyte",
     price: 199,
@@ -86,8 +86,8 @@ const wishlistItems = [
   },
   {
     name: "IVANKY VESA Certified DisplayPort Cable 2m",
-    wishlist: "General",
-    category: "Technology",
+    wishlist: "Gaming",
+    category: "Accessories",
     brand: "IVANKY",
     price: 5.99,
     quantity: 3,
@@ -102,8 +102,8 @@ const wishlistItems = [
   },
   {
     name: "UGREEN Cat 6 Braided Ethernet Cable 1m",
-    wishlist: "General",
-    category: "Technology",
+    wishlist: "Gaming",
+    category: "Accessories",
     brand: "UGREEN",
     price: 4.20,
     quantity: 3,
@@ -118,7 +118,7 @@ const wishlistItems = [
   },
   {
     name: "Corsair RM850e 850W Fully Modular Power Supply",
-    wishlist: "General",
+    wishlist: "Gaming",
     category: "Technology",
     brand: "Corsair",
     price: 127.99,
@@ -134,7 +134,7 @@ const wishlistItems = [
   },
   {
     name: "Gigabyte GS25F2A 24.5-inch Full HD Gaming Monitor",
-    wishlist: "General",
+    wishlist: "Gaming",
     category: "Technology",
     brand: "Gigabyte",
     price: 99,
@@ -150,8 +150,8 @@ const wishlistItems = [
   },
     {
     name: "UGREEN 5 Port Gigabit Network Switch, Ethernet Splitter Hub",
-    wishlist: "General",
-    category: "Technology",
+    wishlist: "Gaming",
+    category: "Accessories",
     brand: "UGREEN",
     price: 9.99,
     quantity: 1,
@@ -166,7 +166,7 @@ const wishlistItems = [
   },
       {
     name: "Trust Yuri 2.1 Speaker Set with Wooden Subwoofer",
-    wishlist: "General",
+    wishlist: "Gaming",
     category: "Technology",
     brand: "Trust",
     price: 49.99,
@@ -182,8 +182,8 @@ const wishlistItems = [
   },
         {
     name: "UGREEN Extension Lead 1.5M, 6 Way Power Strip with 3 USB-A & 1 USB-C",
-    wishlist: "General",
-    category: "Technology",
+    wishlist: "Gaming",
+    category: "Accessories",
     brand: "UGREEN",
     price: 16.99,
     quantity: 2,
@@ -214,8 +214,8 @@ const wishlistItems = [
   },
           {
     name: "Ultrawide Monitor Arm for 17-49 Inch Screens",
-    wishlist: "General",
-    category: "Technology",
+    wishlist: "Gaming",
+    category: "Accessories",
     brand: "",
     price: 29.99,
     quantity: 1,
@@ -230,8 +230,8 @@ const wishlistItems = [
   }, 
           {
     name: "MOUNTUP Dual Monitor Arm Desk Mount for 13–32 Inch Screens",
-    wishlist: "General",
-    category: "Technology",
+    wishlist: "Gaming",
+    category: "Accessories",
     brand: "",
     price: 23.99,
     quantity: 1,
@@ -246,7 +246,7 @@ const wishlistItems = [
   },  
           {
     name: "UGREEN HDMI Switch 4K@60Hz Bi-directional HDMI Splitter 2 In 1 Out",
-    wishlist: "General",
+    wishlist: "Gaming",
     category: "Technology",
     brand: "UGREEN",
     price: 9.99,
@@ -262,7 +262,7 @@ const wishlistItems = [
   },    
           {
     name: "Tapo TP-Link Smart Bulb, Smart WiFi LED Light, E27",
-    wishlist: "General",
+    wishlist: "Gaming",
     category: "Technology",
     brand: "Tapo",
     price: 7.99,
@@ -278,7 +278,7 @@ const wishlistItems = [
   }, 
           {
     name: "GIGABYTE GeForce RTX 5060 8 GB EAGLE OC Graphics Card",
-    wishlist: "General",
+    wishlist: "Gaming",
     category: "Technology",
     brand: "GIGABYTE",
     price: 309.99,
@@ -724,4 +724,36 @@ const wishlistItems = [
     description: "",
     notes: ""
   },   
+                {
+    name: "SONY PlayStation 5 Digital Edition",
+    wishlist: "Gaming",
+    category: "Technology",
+    brand: "Sony",
+    price: 519,
+    quantity: 1,
+    priority: "Low",
+    purchased: false,
+    store: "Currys",
+    dateAdded: "2026-07-31",
+    image: "https://media.currys.biz/i/currysprod/10291988?$l-large$&fmt=auto",
+    link: "https://www.currys.co.uk/products/sony-playstation-5-digital-edition-10291988.html?searchTerm=PS5",
+    description: "",
+    notes: ""
+  }, 
+                  {
+    name: "OIVO PS5/Slim/Pro Stand and Cooling Station",
+    wishlist: "Gaming",
+    category: "Technology",
+    brand: "",
+    price: 26.99,
+    quantity: 1,
+    priority: "Low",
+    purchased: false,
+    store: "Amazon",
+    dateAdded: "2026-07-31",
+    image: "https://m.media-amazon.com/images/I/713asLPZglL._AC_SL1500_.jpg",
+    link: "https://www.amazon.co.uk/OIVO-Controller-Charging-Playstation-Upgraded-White/dp/B08T1KHHR9/ref=sr_1_5?crid=1GIMA3F2CT9YV&dib=eyJ2IjoiMSJ9.1abQ98o4mNULwDxRhELgh5aZ-l-flC9eRJiPQvQE84bs7UgihHyPbbdWkQwBnb2dKQAsKYQEl_HfekSDi2oB7saHpj1zBzuJHlRyeX2gtsToW1_EYC_96OQZjzCVmt7Qm_KXmU3sayyDtPVdQWFmMT8y6wTwUqT7LuB-PyRIiRp137T5z0D6McXpp4t0SLba-Q0Bmi1aWeB4tsG_NuTUmACulmTWIS45BnLC8P5Kb0A.fczW1BiKSneBdNp7Tw0HZnAjleyDok62P-ST1Rb4kxU&dib_tag=se&keywords=ps5%2Baccessories&qid=1785491982&sprefix=PS5%2Bac%2Caps%2C345&sr=8-5&th=1",
+    description: "",
+    notes: "Only to be bought with or after PS5."
+  }, 
 ];
