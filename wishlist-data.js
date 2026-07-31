@@ -763,7 +763,7 @@ const wishlistItems = [
     brand: "RAZER",
     price: 249,
     quantity: 1,
-    priority: "Low",
+    priority: "High",
     purchased: false,
     store: "Currys",
     dateAdded: "2026-07-31",
