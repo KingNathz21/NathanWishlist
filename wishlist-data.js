@@ -755,5 +755,21 @@ const wishlistItems = [
     link: "https://www.amazon.co.uk/OIVO-Controller-Charging-Playstation-Upgraded-White/dp/B08T1KHHR9/ref=sr_1_5?crid=1GIMA3F2CT9YV&dib=eyJ2IjoiMSJ9.1abQ98o4mNULwDxRhELgh5aZ-l-flC9eRJiPQvQE84bs7UgihHyPbbdWkQwBnb2dKQAsKYQEl_HfekSDi2oB7saHpj1zBzuJHlRyeX2gtsToW1_EYC_96OQZjzCVmt7Qm_KXmU3sayyDtPVdQWFmMT8y6wTwUqT7LuB-PyRIiRp137T5z0D6McXpp4t0SLba-Q0Bmi1aWeB4tsG_NuTUmACulmTWIS45BnLC8P5Kb0A.fczW1BiKSneBdNp7Tw0HZnAjleyDok62P-ST1Rb4kxU&dib_tag=se&keywords=ps5%2Baccessories&qid=1785491982&sprefix=PS5%2Bac%2Caps%2C345&sr=8-5&th=1",
     description: "",
     notes: "Only to be bought with or after PS5."
-  }, 
+  },
+                  {
+    name: "RAZER TAROK PRO X Cloth Gaming Chair - Grey & Green",
+    wishlist: "Gaming",
+    category: "Accessories",
+    brand: "RAZER",
+    price: 249,
+    quantity: 1,
+    priority: "Low",
+    purchased: false,
+    store: "Currys",
+    dateAdded: "2026-07-31",
+    image: "https://media.currys.biz/i/currysprod/10238929?$l-large$&fmt=auto",
+    link: "https://www.currys.co.uk/products/razer-tarok-pro-x-cloth-gaming-chair-grey-and-green-10238929.html",
+    description: "",
+    notes: "Sometimes on Sale"
+  },  
 ];
