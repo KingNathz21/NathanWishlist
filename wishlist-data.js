@@ -759,7 +759,7 @@ const wishlistItems = [
                   {
     name: "RAZER TAROK PRO X Cloth Gaming Chair - Grey & Green",
     wishlist: "Gaming",
-    category: "Accessories",
+    category: "Furniture",
     brand: "RAZER",
     price: 249,
     quantity: 1,
