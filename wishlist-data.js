@@ -771,5 +771,37 @@ const wishlistItems = [
     link: "https://www.currys.co.uk/products/razer-tarok-pro-x-cloth-gaming-chair-grey-and-green-10238929.html",
     description: "",
     notes: "Sometimes on Sale"
-  },  
+  }, 
+                  {
+    name: "The Bus",
+    wishlist: "Gaming",
+    category: "Game",
+    brand: "Aerosoft",
+    price: 31.74,
+    quantity: 1,
+    priority: "High",
+    purchased: false,
+    store: "XBOX",
+    dateAdded: "2026-07-31",
+    image: "https://store-images.s-microsoft.com/image/apps.64806.14223253600424099.2404e16b-be94-412b-89c2-ef710be79fce.bd8f3a6b-6340-479f-ad6f-10426d9e2a19",
+    link: "https://www.xbox.com/en-GB/games/store/the-bus/9pj4vb2lml1q",
+    description: "",
+    notes: "Can buy as a gift or on the nhjwm account."
+  },   
+                  {
+    name: "Target Darts ARC Light Dartboard Cabinet Set with Darts",
+    wishlist: "General",
+    category: "Home",
+    brand: "Target Darts",
+    price: 70,
+    quantity: 1,
+    priority: "High",
+    purchased: false,
+    store: "Argos",
+    dateAdded: "2026-07-31",
+    image: "https://media.4rgos.it/i/Argos/9506048_R_Z001A?w=1500&h=880&qlt=70&fmt=webp",
+    link: "https://www.argos.co.uk/product/9506048",
+    description: "",
+    notes: ""
+  },    
 ];
