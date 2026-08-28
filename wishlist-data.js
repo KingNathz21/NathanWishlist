@@ -137,7 +137,7 @@ const wishlistItems = [
     wishlist: "Gaming",
     category: "Technology",
     brand: "Gigabyte",
-    price: 99,
+    price: 89,
     quantity: 2,
     priority: "High",
     purchased: false,
