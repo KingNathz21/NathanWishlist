@@ -37,18 +37,18 @@
 
 const wishlistItems = [
   {
-    name: "Gigabyte GS32QCA 31.5 QHD Curved Gaming Monitor",
+    name: "Samsung 27 Odyssey G5 G53F QHD 200Hz Gaming Monitor",
     wishlist: "Gaming",
     category: "Technology",
-    brand: "Gigabyte",
-    price: 199,
+    brand: "Samsung",
+    price: 169.15,
     quantity: 1,
     priority: "High",
     purchased: false,
-    store: "Currys",
+    store: "Samsung",
     dateAdded: "2026-07-26",
-    image: "https://media.currys.biz/i/currysprod/10282565?$l-large$&fmt=auto",
-    link: "https://www.currys.co.uk/products/gigabyte-gs32qca-quad-hd-31.5-curved-va-lcd-gaming-monitor-black-10282565.html?searchTerm=gigabyte%2031.5",
+    image: "https://images.samsung.com/is/image/samsung/p6pim/uk/ls27fg530euxxu/gallery/uk-odyssey-g5-27g53f-ls27fg530euxxu-549942864?$Q90_1368_1094_F_JPG$",
+    link: "https://www.samsung.com/uk/multistore/uk_student/pd.LS27FG530EUXXU/?cid=uk_pd_affiliate_gocertify_none_none_alwayson_other_none_student",
     description: "Gaming Monitor to replace BUSH TV.",
     notes: ""
   },
@@ -133,19 +133,19 @@ const wishlistItems = [
     notes: "Need to be bought with or at the same time as Graphics Card"
   },
   {
-    name: "Gigabyte GS25F2A 24.5-inch Full HD Gaming Monitor",
+    name: "24 Inch Odyssey G3 G30H FHD 200Hz Gaming Monitor",
     wishlist: "Gaming",
     category: "Technology",
-    brand: "Gigabyte",
-    price: 89,
+    brand: "Samsung",
+    price: 119,
     quantity: 2,
     priority: "High",
     purchased: false,
-    store: "Currys",
+    store: "Samsung",
     dateAdded: "2026-07-26",
-    image: "https://media.currys.biz/i/currysprod/10299628?$l-large$&fmt=auto",
-    link: "https://www.currys.co.uk/products/gigabyte-gs25f2a-full-hd-24.5-ips-lcd-gaming-monitor-black-10299628.html",
-    description: "24.5-inch Full HD IPS gaming monitor with a 240Hz refresh rate, 1ms response time, built-in speakers and VESA mounting support.",
+    image: "https://images.samsung.com/is/image/samsung/p6pim/uk/ls24hg302euxxu/gallery/uk-odyssey-g3-g30h-ls24hg302euxxu-554661178?$1164_776_PNG$",
+    link: "https://www.samsung.com/uk/multistore/uk_student/pd.LS24HG302EUXXU/?cid=uk_pd_affiliate_gocertify_none_none_alwayson_other_none_student",
+    description: "24-inch Full HD IPS gaming monitor with a 240Hz refresh rate, 1ms response time, built-in speakers and VESA mounting support.",
     notes: ""
   },
     {
