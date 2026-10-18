@@ -165,18 +165,18 @@ const wishlistItems = [
     notes: "Needs Ethernet's and WiFi Extender"
   },
       {
-    name: "Trust Yuri 2.1 Speaker Set with Wooden Subwoofer",
+    name: "GXTrust Tytan 5.1 Surround Sound Speaker System 180W",
     wishlist: "Gaming",
     category: "Technology",
-    brand: "Trust",
-    price: 49.99,
+    brand: "GXTrust",
+    price: 119.99,
     quantity: 1,
     priority: "High",
     purchased: false,
     store: "Amazon",
     dateAdded: "2026-07-26",
     image: "https://m.media-amazon.com/images/I/71zXBFY6t+L._AC_SL1500_.jpg",
-    link: "https://www.amazon.co.uk/Trust-Subwoofer-Speakers-Headphones-Connections/dp/B08FR5T7N5/ref=sr_1_1?crid=1OSM4GGKRHRFN&dib=eyJ2IjoiMSJ9.GFwRTtvj3Sp1luGwzU8p2KcQS5-gL2H2H8_r-iyGa-RpR9ioD1HY-sBFQ0-vi1SEUXq5YFDeaCckJIx_iJxWsA.mQWZycz9yEK9HmnDPVtEWqEuzAIS1VnHsZ8I0VTs7QQ&dib_tag=se&keywords=Trust+Yuri+2.1&qid=1785064387&sprefix=trust+yuri+2.1%2Caps%2C193&sr=8-1&ufe=app_do%3Aamzn1.fos.95fd378e-6299-4723-b1f1-3952ffba15af",
+    link: "https://amzn.eu/d/0hT6a3ZW",
     description: "PC Speakers with Subwoofer",
     notes: ""
   },
