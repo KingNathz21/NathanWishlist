@@ -292,10 +292,45 @@ function updateStats() {
 }
 
 
-function exportWishlistPdf() {
-  const PdfDocument = window.jspdf?.jsPDF;
-  if (!PdfDocument) {
-    alert("The PDF exporter could not load. Check your internet connection and try again.");
+async function loadPdfLibrary() {
+  if (window.jspdf?.jsPDF) return window.jspdf.jsPDF;
+
+  const sources = [
+    "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js",
+    "https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js",
+    "https://unpkg.com/jspdf@2.5.2/dist/jspdf.umd.min.js"
+  ];
+
+  for (const source of sources) {
+    try {
+      await new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = source;
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = () => {
+          script.remove();
+          reject(new Error("Could not load PDF library from " + source));
+        };
+        document.head.appendChild(script);
+      });
+
+      if (window.jspdf?.jsPDF) return window.jspdf.jsPDF;
+    } catch (error) {
+      console.warn("PDF library source failed:", source);
+    }
+  }
+
+  throw new Error("All PDF library sources failed to load.");
+}
+
+async function exportWishlistPdf() {
+  let PdfDocument;
+  try {
+    PdfDocument = await loadPdfLibrary();
+  } catch (error) {
+    console.error("Wishlist PDF export failed:", error);
+    alert("The PDF tool couldn't load from its providers. Please try again in a moment, or open the wishlist in Safari/Chrome and try again.");
     return;
   }
 
