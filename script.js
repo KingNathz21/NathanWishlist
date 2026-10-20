@@ -291,6 +291,118 @@ function updateStats() {
   purchasedCount.textContent = purchasedUnits;
 }
 
+
+function exportWishlistPdf() {
+  const PdfDocument = window.jspdf?.jsPDF;
+  if (!PdfDocument) {
+    alert("The PDF exporter could not load. Check your internet connection and try again.");
+    return;
+  }
+
+  const items = filteredItems();
+  if (!items.length) {
+    alert("There are no wishlist items to export with the current filters.");
+    return;
+  }
+
+  const pdf = new PdfDocument({ orientation: "portrait", unit: "mm", format: "a4" });
+  const pageWidth = pdf.internal.pageSize.getWidth();
+  const pageHeight = pdf.internal.pageSize.getHeight();
+  const margin = 16;
+  const contentWidth = pageWidth - margin * 2;
+  let y = 20;
+
+  pdf.setFont("helvetica", "bold");
+  pdf.setFontSize(22);
+  pdf.setTextColor(49, 87, 164);
+  pdf.text("Nathan's Wishlist", margin, y);
+  y += 7;
+
+  pdf.setFont("helvetica", "normal");
+  pdf.setFontSize(9);
+  pdf.setTextColor(100, 113, 138);
+  pdf.text(`Exported ${new Date().toLocaleDateString("en-GB")} · ${items.length} ${items.length === 1 ? "item" : "items"}`, margin, y);
+  y += 5;
+
+  const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  pdf.setFont("helvetica", "bold");
+  pdf.setFontSize(10);
+  pdf.setTextColor(30, 45, 75);
+  pdf.text(`Total wishlist value: ${money.format(total)}`, margin, y);
+  y += 9;
+
+  pdf.setDrawColor(215, 224, 240);
+  pdf.line(margin, y, pageWidth - margin, y);
+  y += 7;
+
+  items.forEach((item, index) => {
+    const nameLines = pdf.splitTextToSize(item.name, contentWidth - 4);
+    const descriptionLines = item.description
+      ? pdf.splitTextToSize(item.description, contentWidth - 4)
+      : [];
+    const notesLines = item.notes
+      ? pdf.splitTextToSize(`Notes: ${item.notes}`, contentWidth - 4)
+      : [];
+    const blockHeight = 8 + nameLines.length * 5 + 5 + descriptionLines.length * 4 +
+      notesLines.length * 4 + 5;
+
+    if (y + blockHeight > pageHeight - 15) {
+      pdf.addPage();
+      y = 18;
+    }
+
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(11);
+    pdf.setTextColor(49, 87, 164);
+    const validLink = /^https?:\/\//i.test(item.link) ? item.link : undefined;
+    pdf.text(nameLines, margin, y, validLink ? { url: validLink } : {});
+    y += nameLines.length * 5 + 1;
+
+    pdf.setFont("helvetica", "normal");
+    pdf.setFontSize(9);
+    pdf.setTextColor(55, 65, 81);
+    const details = [
+      item.category,
+      item.store,
+      `Qty: ${item.quantity}`,
+      `Priority: ${item.priority}`,
+      money.format(item.price * item.quantity)
+    ].filter(Boolean).join(" · ");
+    pdf.text(details, margin, y);
+    y += 5;
+
+    if (descriptionLines.length) {
+      pdf.setTextColor(100, 113, 138);
+      pdf.text(descriptionLines, margin, y);
+      y += descriptionLines.length * 4;
+    }
+
+    if (notesLines.length) {
+      pdf.setTextColor(100, 113, 138);
+      pdf.text(notesLines, margin, y);
+      y += notesLines.length * 4;
+    }
+
+    y += 4;
+    pdf.setDrawColor(230, 235, 244);
+    if (index < items.length - 1) {
+      pdf.line(margin, y - 1, pageWidth - margin, y - 1);
+    }
+    y += 2;
+  });
+
+  const pageCount = pdf.getNumberOfPages();
+  for (let page = 1; page <= pageCount; page += 1) {
+    pdf.setPage(page);
+    pdf.setFont("helvetica", "normal");
+    pdf.setFontSize(8);
+    pdf.setTextColor(130, 140, 155);
+    pdf.text(`Nathan's Wishlist · Page ${page} of ${pageCount}`, pageWidth / 2, pageHeight - 8, { align: "center" });
+  }
+
+  pdf.save("Nathans-Wishlist.pdf");
+}
+
 function setTheme(theme) {
   const dark = theme === "dark";
   document.body.classList.toggle("dark", dark);
@@ -309,6 +421,8 @@ sortSelect?.addEventListener("change", event => {
   sortMode = event.target.value;
   renderWishlist();
 });
+
+document.getElementById("exportPdf")?.addEventListener("click", exportWishlistPdf);
 
 themeToggle?.addEventListener("click", () => {
   setTheme(document.body.classList.contains("dark") ? "light" : "dark");
