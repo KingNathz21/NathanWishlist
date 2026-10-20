@@ -178,7 +178,7 @@ const wishlistItems = [
     image: "https://m.media-amazon.com/images/I/71zXBFY6t+L._AC_SL1500_.jpg",
     link: "https://amzn.eu/d/0hT6a3ZW",
     description: "PC Speakers with Subwoofer",
-    notes: ""
+    notes: "NOT CORRECT IMAGE”
   },
         {
     name: "UGREEN Extension Lead 1.5M, 6 Way Power Strip with 3 USB-A & 1 USB-C",
@@ -277,20 +277,20 @@ const wishlistItems = [
     notes: ""
   }, 
           {
-    name: "GIGABYTE GeForce RTX 5060 8 GB EAGLE OC Graphics Card",
+    name: "MSI GeForce RTX 5050 8GB GAMING OC Graphics Card",
     wishlist: "Gaming",
     category: "Technology",
-    brand: "GIGABYTE",
-    price: 309.99,
+    brand: "MSI",
+    price: 324.99,
     quantity: 1,
     priority: "High",
     purchased: false,
     store: "Currys",
     dateAdded: "2026-07-26",
     image: "https://media.currys.biz/i/currysprod/10275089?$l-large$&fmt=auto",
-    link: "https://www.currys.co.uk/products/gigabyte-geforce-rtx-5060-8-gb-eagle-oc-graphics-card-10275089.html",
-    description: "Light Bulb",
-    notes: ""
+    link: "https://www.currys.co.uk/products/msi-geforce-rtx-5050-8-gb-gaming-oc-graphics-card-10275110.html",
+    description: “",
+    notes: "NOT CORRECT IMAGE”
   },
           {
     name: "MALM Bed frame, high, dark grey/Luröy, Standard Double",
