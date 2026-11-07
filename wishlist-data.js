@@ -896,7 +896,7 @@ const wishlistItems = [
     purchased: false,
     store: "Steam",
     dateAdded: "2026-11-07",
-    image: "",
+    image: "https://cdn.akamai.steamstatic.com/steam/apps/3809270/header.jpg",
     link: "https://store.steampowered.com/app/3809270/Euro_Truck_Simulator_2_Coaches/",
     description: "Coaches DLC for Euro Truck Simulator 2. Requires the base game.",
     notes: "Planned release: 12 November 2026. Price not yet listed."
@@ -912,7 +912,7 @@ const wishlistItems = [
     purchased: false,
     store: "Xbox",
     dateAdded: "2026-11-07",
-    image: "",
+    image: "https://www.rockstargames.com/VI/_next/static/media/Official_Cover_Art_landscape.12.uu2irr.2_a.jpg?akim=1&imdensity=1&imwidth=3840",
     link: "https://www.xbox.com/en-GB/games/grand-theft-auto-vi",
     description: "Grand Theft Auto VI for Xbox Series X|S.",
     notes: "Release date: 19 November 2026. Price not confirmed in wishlist."
@@ -928,7 +928,7 @@ const wishlistItems = [
     purchased: false,
     store: "Xbox",
     dateAdded: "2026-11-07",
-    image: "",
+    image: "https://xboxwire.thesourcemediaassets.com/sites/2/2026/02/Hero-Image-ab506d37cbf7a18c23b0.jpg",
     link: "https://www.xbox.com/en-GB/games/store/bus-simulator-27/9pnhkn79l7nf",
     description: "Bus driving simulation featuring more than 45 officially licensed buses.",
     notes: "Xbox Series X|S. Standard edition."
@@ -944,7 +944,7 @@ const wishlistItems = [
     purchased: false,
     store: "Steam / Xbox (undecided)",
     dateAdded: "2026-11-07",
-    image: "",
+    image: "https://cdn.akamai.steamstatic.com/steam/apps/5168640/header.jpg",
     link: "https://store.steampowered.com/app/5168640/The_Bus__London_South/",
     description: "South and Central London bus driving experience, including routes 2 and former 507.",
     notes: "Platform undecided between Steam and Xbox. Steam listing currently found."
@@ -960,7 +960,7 @@ const wishlistItems = [
     purchased: false,
     store: "Steam",
     dateAdded: "2026-11-07",
-    image: "",
+    image: "https://cdn.akamai.steamstatic.com/steam/apps/3762010/header.jpg",
     link: "https://store.steampowered.com/app/3762010/Fernbus_Simulator__England/",
     description: "England map expansion for Fernbus Simulator.",
     notes: "Requires Fernbus Simulator base game."
@@ -976,7 +976,7 @@ const wishlistItems = [
     purchased: false,
     store: "Steam",
     dateAdded: "2026-11-07",
-    image: "",
+    image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/427100/header.jpg",
     link: "https://store.steampowered.com/app/427100/Fernbus_Simulator/",
     description: "Coach driving simulation. Base game required for the England DLC.",
     notes: ""
@@ -992,7 +992,7 @@ const wishlistItems = [
     purchased: false,
     store: "Steam",
     dateAdded: "2026-11-07",
-    image: "",
+    image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2064810/header.jpg",
     link: "https://store.steampowered.com/app/2064810/CityDriver/",
     description: "Driving simulation set in Munich with realistic traffic, missions and freeplay.",
     notes: ""
@@ -1008,7 +1008,7 @@ const wishlistItems = [
     purchased: false,
     store: "Xbox",
     dateAdded: "2026-11-07",
-    image: "",
+    image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1190000/header.jpg",
     link: "https://www.xbox.com/en-gb/games/store/Car-Mechanic-Simulator-2021/9NH019ZFFHTV",
     description: "Repair, paint, tune and restore vehicles in a detailed workshop simulation.",
     notes: "Xbox Series X|S version."
