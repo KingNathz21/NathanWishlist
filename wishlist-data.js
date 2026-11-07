@@ -868,5 +868,23 @@ const wishlistItems = [
     link: "https://www.corsair.com/uk/en/p/gaming-gear-accessories/ca-9011167-eu/st100-rgb-premium-headset-stand-with-7-1-surround-sound-eu-ca-9011167-eu",
     description: "",
     notes: ""
-  }
+  },
+  {
+    name: "RAZER TAROK PRO X Cloth Gaming Chair - Grey & Green",
+    wishlist: "Gaming",
+    category: "Furniture",
+    brand: "RAZER",
+    price: 249,
+    quantity: 1,
+    priority: "High",
+    purchased: false,
+    store: "Currys",
+    dateAdded: "2026-07-31",
+    image: "https://media.currys.biz/i/currysprod/10238929?$l-large
+];
+fmt=auto",
+    link: "https://www.currys.co.uk/products/razer-tarok-pro-x-cloth-gaming-chair-grey-and-green-10238929.html",
+    description: "",
+    notes: "Sometimes on Sale"
+  },
 ];
