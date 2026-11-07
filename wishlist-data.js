@@ -1013,4 +1013,20 @@ const wishlistItems = [
     description: "Repair, paint, tune and restore vehicles in a detailed workshop simulation.",
     notes: "Xbox Series X|S version."
   }
+  {
+    name: "Seagate Storage Expansion Card for Xbox Series X|S",
+    wishlist: "Gaming Accessories",
+    category: "Storage Expansion Card",
+    brand: "Seagate",
+    price: null,
+    quantity: 1,
+    priority: "High",
+    purchased: false,
+    store: "Xbox / Seagate",
+    dateAdded: "2026-11-07",
+    image: "",
+    link: "https://www.xbox.com/en-GB/accessories/hard-drives/seagate-expansion-card",
+    description: "Official Seagate storage expansion card that plugs into the dedicated expansion slot on the back of Xbox Series X|S.",
+    notes: "Capacity to be decided: 1TB or 2TB."
+  },
 ];
