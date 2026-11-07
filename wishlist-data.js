@@ -36,7 +36,7 @@
   - Use true if bought, or false if still wanted.
 */
 
-const wishlistItems = [
+window.wishlistItems = [
   {
     name: "Samsung 27 Odyssey G5 G53F QHD 200Hz Gaming Monitor",
     wishlist: "Gaming",
@@ -899,14 +899,14 @@ const wishlistItems = [
     image: "https://cdn.akamai.steamstatic.com/steam/apps/3809270/header.jpg",
     link: "https://store.steampowered.com/app/3809270/Euro_Truck_Simulator_2_Coaches/",
     description: "Coaches DLC for Euro Truck Simulator 2. Requires the base game.",
-    notes: "Planned release: 12 November 2026. Price not yet listed."
+    notes: "Steam has not announced the DLC price yet. Planned release: 12 November 2026."
   },
   {
     name: "Grand Theft Auto VI",
     wishlist: "Games",
     category: "Game",
     brand: "Rockstar Games",
-    price: null,
+    price: 69.99,
     quantity: 1,
     priority: "High",
     purchased: false,
@@ -915,14 +915,14 @@ const wishlistItems = [
     image: "https://www.rockstargames.com/VI/_next/static/media/Official_Cover_Art_landscape.12.uu2irr.2_a.jpg?akim=1&imdensity=1&imwidth=3840",
     link: "https://www.xbox.com/en-GB/games/grand-theft-auto-vi",
     description: "Grand Theft Auto VI for Xbox Series X|S.",
-    notes: "Release date: 19 November 2026. Price not confirmed in wishlist."
+    notes: "Xbox Store pre-order price £69.99."
   },
   {
     name: "Bus Simulator 27",
     wishlist: "Games",
     category: "Game",
     brand: "astragon Entertainment",
-    price: 29.99,
+    price: 23.99,
     quantity: 1,
     priority: "High",
     purchased: false,
@@ -931,7 +931,7 @@ const wishlistItems = [
     image: "https://xboxwire.thesourcemediaassets.com/sites/2/2026/02/Hero-Image-ab506d37cbf7a18c23b0.jpg",
     link: "https://www.xbox.com/en-GB/games/store/bus-simulator-27/9pnhkn79l7nf",
     description: "Bus driving simulation featuring more than 45 officially licensed buses.",
-    notes: "Xbox Series X|S. Standard edition."
+    notes: "Xbox Store standard edition: £29.99; currently showing £23.99 on offer."
   },
   {
     name: "The Bus - London South",
@@ -947,7 +947,7 @@ const wishlistItems = [
     image: "https://cdn.akamai.steamstatic.com/steam/apps/5168640/header.jpg",
     link: "https://store.steampowered.com/app/5168640/The_Bus__London_South/",
     description: "South and Central London bus driving experience, including routes 2 and former 507.",
-    notes: "Platform undecided between Steam and Xbox. Steam listing currently found."
+    notes: "Upcoming DLC. Price and release date have not been announced; platform choice is still undecided."
   },
   {
     name: "Fernbus Simulator - England",
@@ -963,14 +963,14 @@ const wishlistItems = [
     image: "https://cdn.akamai.steamstatic.com/steam/apps/3762010/header.jpg",
     link: "https://store.steampowered.com/app/3762010/Fernbus_Simulator__England/",
     description: "England map expansion for Fernbus Simulator.",
-    notes: "Requires Fernbus Simulator base game."
+    notes: "Steam listing does not currently show a UK GBP price. Requires Fernbus Simulator base game."
   },
   {
     name: "Fernbus Simulator",
     wishlist: "Games",
     category: "Game",
     brand: "Aerosoft",
-    price: null,
+    price: 27.1,
     quantity: 1,
     priority: "High",
     purchased: false,
@@ -979,14 +979,14 @@ const wishlistItems = [
     image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/427100/header.jpg",
     link: "https://store.steampowered.com/app/427100/Fernbus_Simulator/",
     description: "Coach driving simulation. Base game required for the England DLC.",
-    notes: ""
+    notes: "Steam UK standard price £27.10; check for sale pricing."
   },
   {
     name: "CityDriver",
     wishlist: "Games",
     category: "Game",
     brand: "Aerosoft",
-    price: null,
+    price: 24.99,
     quantity: 1,
     priority: "Medium",
     purchased: false,
@@ -995,7 +995,7 @@ const wishlistItems = [
     image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2064810/header.jpg",
     link: "https://store.steampowered.com/app/2064810/CityDriver/",
     description: "Driving simulation set in Munich with realistic traffic, missions and freeplay.",
-    notes: ""
+    notes: "Steam UK standard price £24.99; check for sale pricing."
   },
   {
     name: "Car Mechanic Simulator 2021",
