@@ -17,9 +17,10 @@
   - Leave it blank ("") if you do not need a note.
 
   image:
-  - Use a direct image URL, for example: "https://example.com/photo.jpg"
-  - Or add an image to an "images" folder and use: "images/photo.jpg"
-  - Leave it blank ("") to show a stylish letter placeholder.
+  - Use a direct image URL if you want to choose the image yourself.
+  - Or leave it blank ("") and the website will try to find a product image
+    automatically from the product link. Some shops block automatic lookups,
+    in which case the stylish letter placeholder will remain.
 
   price:
   - Enter numbers only. Example: 79.99
