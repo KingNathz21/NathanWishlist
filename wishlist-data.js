@@ -1012,21 +1012,21 @@ const wishlistItems = [
     link: "https://www.xbox.com/en-gb/games/store/Car-Mechanic-Simulator-2021/9NH019ZFFHTV",
     description: "Repair, paint, tune and restore vehicles in a detailed workshop simulation.",
     notes: "Xbox Series X|S version."
-  }
+  },
   {
-    name: "Seagate Storage Expansion Card for Xbox Series X|S",
-    wishlist: "Gaming Accessories",
-    category: "Storage Expansion Card",
+    name: "Seagate Storage Expansion Card for Xbox Series X|S (1TB)",
+    wishlist: "Gaming",
+    category: "Storage",
     brand: "Seagate",
     price: null,
     quantity: 1,
     priority: "High",
     purchased: false,
-    store: "Xbox / Seagate",
+    store: "Argos",
     dateAdded: "2026-11-07",
-    image: "",
-    link: "https://www.xbox.com/en-GB/accessories/hard-drives/seagate-expansion-card",
+    image: "https://media.4rgos.it/i/Argos/9441031_R_Z001A?h=440&qlt=70&w=750",
+    link: "https://www.argos.co.uk/product/9441031/",
     description: "Official Seagate storage expansion card that plugs into the dedicated expansion slot on the back of Xbox Series X|S.",
-    notes: "Capacity to be decided: 1TB or 2TB."
+    notes: "1TB version. Seagate expansion card for the dedicated slot on the back of Xbox Series X|S."
   },
 ];
