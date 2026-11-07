@@ -834,7 +834,7 @@ const wishlistItems = [
     image: "https://assets.corsair.com/image/upload/c_pad,q_85,h_1100,w_1100,f_auto/products/Gaming-Headsets/base-void-v2-max-config/gallery/CA-9011388-WW/void_v2_max_wl_01.webp",
     link: "https://www.corsair.com/uk/en/p/gaming-headsets/ca-9011388-ww/void-v2-max-wireless-gaming-headset-carbon-ca-9011388-ww",
     description: "",
-    notes: ""
+    notes: "Check if you can get free mouse when purchased."
   },
         {
     name: "M55 WIRELESS Gaming Mouse",
