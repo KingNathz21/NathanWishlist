@@ -788,22 +788,6 @@ const wishlistItems = [
     description: "",
     notes: "Can buy as a gift or on the nhjwm account."
   },   
-                  {
-    name: "Target Darts ARC Light Dartboard Cabinet Set with Darts",
-    wishlist: "General",
-    category: "Home",
-    brand: "Target Darts",
-    price: 70,
-    quantity: 1,
-    priority: "High",
-    purchased: false,
-    store: "Argos",
-    dateAdded: "2026-07-31",
-    image: "https://media.4rgos.it/i/Argos/9506048_R_Z001A?w=1500&h=880&qlt=70&fmt=webp",
-    link: "https://www.argos.co.uk/product/9506048",
-    description: "",
-    notes: ""
-  },   
   {
     name: "JBL PartyBox Encore Essential 2 Bluetooth Megasound Party Speaker - Black",
     wishlist: "General",
