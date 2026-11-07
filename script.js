@@ -560,3 +560,84 @@ if (savedTheme) {
 renderFilters();
 updateStats();
 renderWishlist();
+
+// Automatically find product images for items whose image field is blank.
+// Microlink reads the product page's Open Graph / structured metadata.
+// Results are cached in this browser so the same link is not fetched repeatedly.
+const IMAGE_CACHE_KEY = "wishlist-auto-image-cache-v1";
+const IMAGE_CACHE_TTL = 7 * 24 * 60 * 60 * 1000;
+
+function readImageCache() {
+  try {
+    return JSON.parse(localStorage.getItem(IMAGE_CACHE_KEY) || "{}");
+  } catch (error) {
+    return {};
+  }
+}
+
+function writeImageCache(cache) {
+  try {
+    localStorage.setItem(IMAGE_CACHE_KEY, JSON.stringify(cache));
+  } catch (error) {
+    console.warn("Could not save wishlist image cache:", error);
+  }
+}
+
+async function findProductImage(productUrl) {
+  if (!/^https?:\/\//i.test(productUrl)) return "";
+
+  const endpoint = "https://api.microlink.io/?url=" + encodeURIComponent(productUrl);
+  const response = await fetch(endpoint, {
+    headers: { Accept: "application/json" }
+  });
+  if (!response.ok) throw new Error("Image lookup returned HTTP " + response.status);
+
+  const result = await response.json();
+  if (result.status !== "success") return "";
+
+  const imageUrl = result.data?.image?.url || result.data?.logo?.url || "";
+  return /^https?:\/\//i.test(imageUrl) ? imageUrl : "";
+}
+
+async function autoFetchMissingImages() {
+  const sourceItems = typeof wishlistItems !== "undefined" && Array.isArray(wishlistItems)
+    ? wishlistItems
+    : [];
+  const cache = readImageCache();
+  let changed = false;
+
+  // Run one lookup at a time to avoid sending a burst of requests.
+  for (const item of sourceItems) {
+    if (!item || cleanText(item.image) || !cleanText(item.link)) continue;
+
+    const productUrl = cleanText(item.link);
+    const cached = cache[productUrl];
+    if (cached && Date.now() - cached.savedAt < IMAGE_CACHE_TTL) {
+      if (cached.image) {
+        item.image = cached.image;
+        changed = true;
+      }
+      continue;
+    }
+
+    try {
+      const imageUrl = await findProductImage(productUrl);
+      cache[productUrl] = { image: imageUrl, savedAt: Date.now() };
+      if (imageUrl) {
+        item.image = imageUrl;
+        changed = true;
+      }
+    } catch (error) {
+      console.warn("Automatic image lookup failed for:", productUrl, error);
+      // Cache a failed lookup briefly so a blocked retailer is not queried on
+      // every page refresh. It will be tried again after six hours.
+      cache[productUrl] = { image: "", savedAt: Date.now() - IMAGE_CACHE_TTL + 6 * 60 * 60 * 1000 };
+    }
+
+    writeImageCache(cache);
+  }
+
+  if (changed) renderWishlist();
+}
+
+autoFetchMissingImages();
