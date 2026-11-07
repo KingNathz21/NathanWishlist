@@ -35,8 +35,9 @@ function cleanText(value, fallback = "") {
 }
 
 function safePrice(value) {
+  if (value === null || value === undefined || value === "") return null;
   const price = Number(value);
-  return Number.isFinite(price) && price >= 0 ? price : 0;
+  return Number.isFinite(price) && price >= 0 ? price : null;
 }
 
 function getQuantity(item) {
@@ -194,7 +195,7 @@ function cardMarkup(item) {
   const linkAvailable = Boolean(item.link);
   const quantity = item.quantity;
   const unitPrice = item.price;
-  const lineTotal = unitPrice * quantity;
+  const lineTotal = unitPrice === null ? null : unitPrice * quantity;
   const date = new Date(item.dateAdded);
   const formattedDate = item.dateAdded && !Number.isNaN(date.getTime())
     ? date.toLocaleDateString("en-GB", {
@@ -232,7 +233,7 @@ function cardMarkup(item) {
 
         <div class="card-footer">
           <div>
-            <strong class="price">${money.format(lineTotal)}</strong>
+            <strong class="price">${lineTotal === null ? "Price TBC" : money.format(lineTotal)}</strong>
             ${quantity > 1 ? `<div class="card-meta">${money.format(unitPrice)} each · ${quantity} wanted</div>` : ""}
             ${formattedDate ? `<div class="card-meta">Added ${formattedDate}</div>` : ""}
           </div>
@@ -282,7 +283,7 @@ function updateStats() {
   const visibleItems = filteredItems();
   const totalUnits = visibleItems.reduce((sum, item) => sum + item.quantity, 0);
   const totalCost = visibleItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
+    (sum, item) => sum + (item.price ?? 0) * item.quantity,
     0
   );
   const purchasedUnits = visibleItems
@@ -395,7 +396,7 @@ async function exportWishlistPdf() {
     const textWidth = margin + contentWidth - textX - 4;
     let y = 14;
 
-    const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const total = items.reduce((sum, item) => sum + (item.price ?? 0) * item.quantity, 0);
     const units = items.reduce((sum, item) => sum + item.quantity, 0);
 
     function addHeader(firstPage) {
@@ -474,7 +475,7 @@ async function exportWishlistPdf() {
       pdf.setFont("helvetica", "bold");
       pdf.setFontSize(9.5);
       pdf.setTextColor(28, 43, 70);
-      pdf.text(money.format(item.price * item.quantity), textX, detailY);
+      pdf.text(item.price === null ? "Price TBC" : money.format(item.price * item.quantity), textX, detailY);
       detailY += 4;
 
       if (descriptionLines.length) {
