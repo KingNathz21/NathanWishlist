@@ -298,7 +298,7 @@ window.wishlistItems = [
     wishlist: "Bedroom",
     category: "Furniture",
     brand: "IKEA",
-    price: 124,
+    price: null,
     quantity: 1,
     priority: "High",
     purchased: false,
@@ -307,7 +307,7 @@ window.wishlistItems = [
     image: "https://www.ikea.com/gb/en/images/products/malm-bed-frame-high-dark-grey-luroey__1392603_pe966167_s5.jpg?f=s",
     link: "https://www.ikea.com/gb/en/p/malm-bed-frame-high-dark-grey-luroey-s19589995/#content",
     description: "",
-    notes: "Dark Grey | IKEA UK price checked 7 Nov 2026."
+    notes: "No longer sold by IKEA UK. Previous price removed."
   },   
           {
     name: "VESTERÖY Pocket sprung mattress, medium firm/light blue, Standard Double",
