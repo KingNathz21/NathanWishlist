@@ -954,7 +954,7 @@ window.wishlistItems = [
     wishlist: "Games",
     category: "Game DLC",
     brand: "Aerosoft",
-    price: null,
+    price: 26.75,
     quantity: 1,
     priority: "High",
     purchased: false,
@@ -963,7 +963,7 @@ window.wishlistItems = [
     image: "https://cdn.akamai.steamstatic.com/steam/apps/3762010/header.jpg",
     link: "https://store.steampowered.com/app/3762010/Fernbus_Simulator__England/",
     description: "England map expansion for Fernbus Simulator.",
-    notes: "Steam listing does not currently show a UK GBP price. Requires Fernbus Simulator base game."
+    notes: "Steam UK price £26.75. Requires Fernbus Simulator base game."
   },
   {
     name: "Fernbus Simulator",
