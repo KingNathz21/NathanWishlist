@@ -758,20 +758,20 @@ const wishlistItems = [
     notes: "Only to be bought with or after PS5."
   },
                   {
-    name: "RAZER TAROK PRO X Cloth Gaming Chair - Grey & Green",
+    name: "White Shark Le Mans Faux Leather Gaming Chair - Black and Red",
     wishlist: "Gaming",
     category: "Furniture",
-    brand: "RAZER",
-    price: 249,
+    brand: "White Shark",
+    price: 179.99,
     quantity: 1,
     priority: "High",
     purchased: false,
-    store: "Currys",
+    store: "Argos",
     dateAdded: "2026-07-31",
-    image: "https://media.currys.biz/i/currysprod/10238929?$l-large$&fmt=auto",
-    link: "https://www.currys.co.uk/products/razer-tarok-pro-x-cloth-gaming-chair-grey-and-green-10238929.html",
-    description: "",
-    notes: "Sometimes on Sale"
+    image: "https://media.4rgos.it/i/Argos/8776484_R_Z001A?h=440&qlt=70&w=750",
+    link: "https://www.argos.co.uk/product/8776484",
+    description: "Racing-style gaming chair with 90–135° adjustable tilt, head and back cushions, adjustable arms and lumbar support. Swivel, tilt and lock mechanism.",
+    notes: "Maximum user weight 110kg. Seat height 47–57cm. Overall size H128 × W67 × D69cm."
   }, 
                   {
     name: "The Bus",
