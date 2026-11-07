@@ -307,7 +307,7 @@ window.wishlistItems = [
     image: "https://www.ikea.com/gb/en/images/products/malm-bed-frame-high-dark-grey-luroey__1392603_pe966167_s5.jpg?f=s",
     link: "https://www.ikea.com/gb/en/p/malm-bed-frame-high-dark-grey-luroey-s19589995/#content",
     description: "",
-    notes: "IKEA UK price checked 7 Nov 2026."
+    notes: "Dark Grey | IKEA UK price checked 7 Nov 2026."
   },   
           {
     name: "VESTERÖY Pocket sprung mattress, medium firm/light blue, Standard Double",
@@ -435,7 +435,7 @@ window.wishlistItems = [
     image: "https://mediahub.boohooman.com/cmm26949_white_xl?qlt=70&w=549&ssz=true&dpr=1",
     link: "https://www.boohooman.com/product/boohooman-white-oversized-interlock-monaco-car-print-t-shirt_cmm26949?colour=white",
     description: "",
-    notes: "Currently listed at £8 (50% off); listing showed out of stock when checked 7 Nov 2026."
+    notes: "Usually on Sale. Currently listed at £8 (50% off); listing showed out of stock when checked 7 Nov 2026."
   }, 
             {
     name: "White Oversized Monaco Racing Print T-Shirt",
@@ -483,7 +483,7 @@ window.wishlistItems = [
     image: "https://mediahub.boohooman.com/cmm24454_grey_xl?qlt=70&w=549&ssz=true&dpr=1",
     link: "https://www.boohooman.com/product/boohooman-essential-baggy-fit-elasticated-twill-cargo-shorts_cmm24454?colour=grey",
     description: "",
-    notes: "Currently listed at £14.40 (20% off) on boohooMAN UK; checked 7 Nov 2026."
+    notes: "Usually on Sale. Current boohooMAN UK listing: £14.40 (20% off), checked 7 Nov 2026."
   },  
             {
     name: "Regular Fit 2 Pack Essential Crew Neck T-Shirts",
@@ -851,7 +851,7 @@ window.wishlistItems = [
     image: "https://assets.corsair.com/image/upload/c_pad,q_85,h_1100,w_1100,f_auto/products/Gaming-Mice/base-m55-wireless-config/gallery/black/M55_WIRELESS_BLK_01.webp",
     link: "https://www.corsair.com/uk/en/p/gaming-mouse/ch-931f000-ww/m55-wireless-gaming-mouse-ch-931f000-ww",
     description: "",
-    notes: "Corsair UK sale price £29.99 (was £44.99); checked 7 Nov 2026."
+    notes: "Only get if free with the headphones as a bundle. Corsair UK sale price: £29.99 (was £44.99), checked 7 Nov 2026."
   },
           {
     name: "ST100 RGB Premium Headset Stand with 7.1 Surround Sound (EU)",
@@ -1027,6 +1027,6 @@ window.wishlistItems = [
     image: "https://media.4rgos.it/i/Argos/9441031_R_Z001A?h=440&qlt=70&w=750",
     link: "https://www.argos.co.uk/product/9441031/",
     description: "Official Seagate storage expansion card that plugs into the dedicated expansion slot on the back of Xbox Series X|S.",
-    notes: "Argos UK price checked 7 Nov 2026."
+    notes: "1TB version. Seagate expansion card for the dedicated slot on the back of Xbox Series X|S. Argos UK price checked 7 Nov 2026."
   },
 ];
