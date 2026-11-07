@@ -902,11 +902,11 @@ window.wishlistItems = [
     notes: "Steam has not announced the DLC price yet. Planned release: 12 November 2026."
   },
   {
-    name: "Grand Theft Auto VI",
+    name: "Grand Theft Auto VI - Ultimate Edition",
     wishlist: "Games",
     category: "Game",
     brand: "Rockstar Games",
-    price: 69.99,
+    price: 89.99,
     quantity: 1,
     priority: "High",
     purchased: false,
@@ -914,8 +914,8 @@ window.wishlistItems = [
     dateAdded: "2026-11-07",
     image: "https://www.rockstargames.com/VI/_next/static/media/Official_Cover_Art_landscape.12.uu2irr.2_a.jpg?akim=1&imdensity=1&imwidth=3840",
     link: "https://www.xbox.com/en-GB/games/grand-theft-auto-vi",
-    description: "Grand Theft Auto VI for Xbox Series X|S.",
-    notes: "Xbox Store pre-order price £69.99."
+    description: "Grand Theft Auto VI Ultimate Edition for Xbox Series X|S.",
+    notes: "Ultimate Edition requested. Wishlist price set to £89.99."
   },
   {
     name: "Bus Simulator 27",
@@ -998,20 +998,20 @@ window.wishlistItems = [
     notes: "Steam UK standard price £24.99; check for sale pricing."
   },
   {
-    name: "Car Mechanic Simulator 2021",
+    name: "Car Mechanic Simulator 2027",
     wishlist: "Games",
     category: "Game",
     brand: "PlayWay",
-    price: 24.99,
+    price: null,
     quantity: 1,
     priority: "Medium",
     purchased: false,
-    store: "Xbox",
+    store: "Steam",
     dateAdded: "2026-11-07",
     image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1190000/header.jpg",
-    link: "https://www.xbox.com/en-gb/games/store/Car-Mechanic-Simulator-2021/9NH019ZFFHTV",
-    description: "Repair, paint, tune and restore vehicles in a detailed workshop simulation.",
-    notes: "Xbox Series X|S version."
+    link: "https://store.steampowered.com/search/?term=Car%20Mechanic%20Simulator%202027",
+    description: "Car Mechanic Simulator 2027 for Steam.",
+    notes: "Steam version requested. Price to be confirmed."
   },
   {
     name: "Seagate Storage Expansion Card for Xbox Series X|S (1TB)",
