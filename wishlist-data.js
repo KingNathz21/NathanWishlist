@@ -58,7 +58,7 @@ window.wishlistItems = [
     wishlist: "General",
     category: "Lighting",
     brand: "Tapo",
-    price: 7.99,
+    price: 7.49,
     quantity: 1,
     priority: "Low",
     purchased: false,
@@ -67,7 +67,7 @@ window.wishlistItems = [
     image: "https://m.media-amazon.com/images/I/71BBEvO36ML._AC_SL1500_.jpg",
     link: "https://www.amazon.co.uk/TP-LINK-Tapo-Colour-Changeable-Required-L530B/dp/B08JZHXQC4",
     description: "Light Bulb",
-    notes: ""
+    notes: "UK Amazon listing checked 7 Nov 2026."
   },
   {
     name: "Wooden Phone Docking Station & Desk Organiser",
@@ -298,7 +298,7 @@ window.wishlistItems = [
     wishlist: "Bedroom",
     category: "Furniture",
     brand: "IKEA",
-    price: 179,
+    price: 124,
     quantity: 1,
     priority: "High",
     purchased: false,
@@ -307,7 +307,7 @@ window.wishlistItems = [
     image: "https://www.ikea.com/gb/en/images/products/malm-bed-frame-high-dark-grey-luroey__1392603_pe966167_s5.jpg?f=s",
     link: "https://www.ikea.com/gb/en/p/malm-bed-frame-high-dark-grey-luroey-s19589995/#content",
     description: "",
-    notes: "Dark Grey"
+    notes: "IKEA UK price checked 7 Nov 2026."
   },   
           {
     name: "VESTERÖY Pocket sprung mattress, medium firm/light blue, Standard Double",
@@ -426,7 +426,7 @@ window.wishlistItems = [
     wishlist: "Clothing",
     category: "Clothing",
     brand: "boohooMAN",
-    price: 16,
+    price: 8,
     quantity: 1,
     priority: "High",
     purchased: false,
@@ -435,7 +435,7 @@ window.wishlistItems = [
     image: "https://mediahub.boohooman.com/cmm26949_white_xl?qlt=70&w=549&ssz=true&dpr=1",
     link: "https://www.boohooman.com/product/boohooman-white-oversized-interlock-monaco-car-print-t-shirt_cmm26949?colour=white",
     description: "",
-    notes: "Usually on Sale."
+    notes: "Currently listed at £8 (50% off); listing showed out of stock when checked 7 Nov 2026."
   }, 
             {
     name: "White Oversized Monaco Racing Print T-Shirt",
@@ -474,7 +474,7 @@ window.wishlistItems = [
     wishlist: "Clothing",
     category: "Clothing",
     brand: "boohooMAN",
-    price: 18,
+    price: 14.40,
     quantity: 1,
     priority: "High",
     purchased: false,
@@ -483,7 +483,7 @@ window.wishlistItems = [
     image: "https://mediahub.boohooman.com/cmm24454_grey_xl?qlt=70&w=549&ssz=true&dpr=1",
     link: "https://www.boohooman.com/product/boohooman-essential-baggy-fit-elasticated-twill-cargo-shorts_cmm24454?colour=grey",
     description: "",
-    notes: "Usually on Sale."
+    notes: "Currently listed at £14.40 (20% off) on boohooMAN UK; checked 7 Nov 2026."
   },  
             {
     name: "Regular Fit 2 Pack Essential Crew Neck T-Shirts",
@@ -618,7 +618,7 @@ window.wishlistItems = [
     wishlist: "Clothing",
     category: "Clothing",
     brand: "Nike",
-    price: 23,
+    price: 8,
     quantity: 1,
     priority: "High",
     purchased: false,
@@ -627,7 +627,7 @@ window.wishlistItems = [
     image: "https://i8.amplience.net/i/jpl/jd_708680_a?$prod404enGB$&qlt=default&fmt=auto&w=589&h=752",
     link: "https://www.jdsports.co.uk/product/black-nike-core-t-shirt/19650643/",
     description: "",
-    notes: ""
+    notes: "JD Sports UK sale price £8 (was £23); listing showed out of stock when checked 7 Nov 2026."
   },  
               {
     name: "Air Force 1 Low",
@@ -650,7 +650,7 @@ window.wishlistItems = [
     wishlist: "Clothing",
     category: "Clothing",
     brand: "Nike",
-    price: 35,
+    price: 20,
     quantity: 1,
     priority: "High",
     purchased: false,
@@ -659,7 +659,7 @@ window.wishlistItems = [
     image: "https://i8.amplience.net/i/jpl/jd_791115_a?$prod404enGB$&qlt=default&fmt=auto&w=589&h=752",
     link: "https://www.jdsports.co.uk/product/black-nike-tech-mix-t-shirt/19739648/",
     description: "",
-    notes: ""
+    notes: "JD Sports UK sale price £20 (was £35); checked 7 Nov 2026."
   },   
                 {
     name: "Nike Core T-Shirt",
@@ -698,7 +698,7 @@ window.wishlistItems = [
     wishlist: "Clothing",
     category: "Clothing",
     brand: "Nike",
-    price: 25,
+    price: 10,
     quantity: 1,
     priority: "High",
     purchased: false,
@@ -707,7 +707,7 @@ window.wishlistItems = [
     image: "https://i8.amplience.net/i/jpl/jd_788870_b?$prod404enGB$&qlt=default&fmt=auto&w=589&h=752",
     link: "https://www.jdsports.co.uk/product/grey-nike-foundation-shorts/19749011/?cm_mmc=googleshop-_-google-_-shopping-_-pla&applink=1&gad_source=1&gad_campaignid=23602599060&gclid=CjwKCAjwpqHTBhAcEiwAj2AfujRSkFrjXNICErcbc0m0lwMnVix9VEKRqyd0-IbWoP_SsaDtfoDNdhoCg6UQAvD_BwE",
     description: "",
-    notes: ""
+    notes: "JD Sports UK sale price £10 (was £38); checked 7 Nov 2026."
   }, 
                {
     name: "Woven Cargo Shorts",
@@ -794,7 +794,7 @@ window.wishlistItems = [
     wishlist: "General",
     category: "Technology",
     brand: "JBL",
-    price: 149,
+    price: 199,
     quantity: 1,
     priority: "High",
     purchased: false,
@@ -803,7 +803,7 @@ window.wishlistItems = [
     image: "https://media.currys.biz/i/currysprod/10282613?$l-large$&fmt=auto",
     link: "https://www.currys.co.uk/products/jbl-partybox-encore-essential-2-bluetooth-megasound-party-speaker-black-10282613.html",
     description: "JBL PartyBox Encore Essential 2 Bluetooth party speaker with 100 W output, LED lightshow and up to 15 hours of battery life.",
-    notes: ""
+    notes: "Currys UK price checked 7 Nov 2026."
   },
    {
     name: "iCUE NEXUS Companion Touch Screen",
@@ -842,7 +842,7 @@ window.wishlistItems = [
     wishlist: "General",
     category: "Gaming",
     brand: "Corsair",
-    price: 44.99,
+    price: 29.99,
     quantity: 1,
     priority: "Low",
     purchased: false,
@@ -851,7 +851,7 @@ window.wishlistItems = [
     image: "https://assets.corsair.com/image/upload/c_pad,q_85,h_1100,w_1100,f_auto/products/Gaming-Mice/base-m55-wireless-config/gallery/black/M55_WIRELESS_BLK_01.webp",
     link: "https://www.corsair.com/uk/en/p/gaming-mouse/ch-931f000-ww/m55-wireless-gaming-mouse-ch-931f000-ww",
     description: "",
-    notes: "Only get if free with the headphones as a bundle."
+    notes: "Corsair UK sale price £29.99 (was £44.99); checked 7 Nov 2026."
   },
           {
     name: "ST100 RGB Premium Headset Stand with 7.1 Surround Sound (EU)",
@@ -1018,7 +1018,7 @@ window.wishlistItems = [
     wishlist: "Gaming",
     category: "Storage",
     brand: "Seagate",
-    price: null,
+    price: 239.99,
     quantity: 1,
     priority: "High",
     purchased: false,
@@ -1027,6 +1027,6 @@ window.wishlistItems = [
     image: "https://media.4rgos.it/i/Argos/9441031_R_Z001A?h=440&qlt=70&w=750",
     link: "https://www.argos.co.uk/product/9441031/",
     description: "Official Seagate storage expansion card that plugs into the dedicated expansion slot on the back of Xbox Series X|S.",
-    notes: "1TB version. Seagate expansion card for the dedicated slot on the back of Xbox Series X|S."
+    notes: "Argos UK price checked 7 Nov 2026."
   },
 ];
