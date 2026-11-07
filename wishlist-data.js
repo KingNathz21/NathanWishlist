@@ -811,7 +811,7 @@ const wishlistItems = [
     brand: "Corsair",
     price: 108.29,
     quantity: 1,
-    priority: "Low",
+    priority: "High",
     purchased: false,
     store: "Corsair",
     dateAdded: "2026-07-24",
@@ -827,7 +827,7 @@ const wishlistItems = [
     brand: "Corsair",
     price: 119.99,
     quantity: 1,
-    priority: "Low",
+    priority: "High",
     purchased: false,
     store: "Corsair",
     dateAdded: "2026-07-24",
@@ -850,7 +850,7 @@ const wishlistItems = [
     image: "https://assets.corsair.com/image/upload/c_pad,q_85,h_1100,w_1100,f_auto/products/Gaming-Mice/base-m55-wireless-config/gallery/black/M55_WIRELESS_BLK_01.webp",
     link: "https://www.corsair.com/uk/en/p/gaming-mouse/ch-931f000-ww/m55-wireless-gaming-mouse-ch-931f000-ww",
     description: "",
-    notes: ""
+    notes: "Can get for free with the headphones as a bundle."
   },
           {
     name: "ST100 RGB Premium Headset Stand with 7.1 Surround Sound (EU)",
@@ -859,7 +859,7 @@ const wishlistItems = [
     brand: "Corsair",
     price: 59.99,
     quantity: 1,
-    priority: "Low",
+    priority: "High",
     purchased: false,
     store: "Corsair",
     dateAdded: "2026-07-24",
