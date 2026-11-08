@@ -1029,4 +1029,20 @@ window.wishlistItems = [
     description: "Official Seagate storage expansion card that plugs into the dedicated expansion slot on the back of Xbox Series X|S.",
     notes: "1TB version. Seagate expansion card for the dedicated slot on the back of Xbox Series X|S. Argos UK price checked 7 Nov 2026."
   },
+  {
+    name: "Tivddikun Cable Management, Under Desk Cable Management, Desk Cable Tidy, 2 Pack",
+    wishlist: "Gaming",
+    category: "Accessories",
+    brand: "Tivddikun",
+    price: 22.99,
+    quantity: 1,
+    priority: "Medium",
+    purchased: false,
+    store: "Amazon",
+    dateAdded: "2026-11-08",
+    image: "",
+    link: "https://www.amazon.co.uk/Tivddikun-Management-Organiser-Standing-Office-Black-2-Pack/dp/B0FCD5WGHZ",
+    description: "Two black under-desk cable management trays with no-drill clamp mounts for organising power strips, adapters and cables.",
+    notes: ""
+  },
 ];
