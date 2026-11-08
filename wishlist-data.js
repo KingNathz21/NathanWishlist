@@ -1040,7 +1040,7 @@ window.wishlistItems = [
     purchased: false,
     store: "Amazon",
     dateAdded: "2026-11-08",
-    image: "",
+    image: "https://i5.walmartimages.com/seo/upgraded-2-Pack-Under-Desk-Cable-Management-Tray-Cord-Organizers-For-Table-Thickness-Up-To-3-16-Wire-Organization-With-Clamp_6b1cb69b-5b34-4d44-a28b-ece2ccfd071d.67a372f20842ac5a725169bc7f7b5dbc.png",
     link: "https://www.amazon.co.uk/Tivddikun-Management-Organiser-Standing-Office-Black-2-Pack/dp/B0FCD5WGHZ",
     description: "Two black under-desk cable management trays with no-drill clamp mounts for organising power strips, adapters and cables.",
     notes: ""
@@ -1056,7 +1056,7 @@ window.wishlistItems = [
     purchased: false,
     store: "Currys",
     dateAdded: "2026-11-08",
-    image: "",
+    image: "https://media.currys.biz/i/currysprod/10242217_002?%24l-large%24=&fmt=auto",
     link: "https://www.currys.co.uk/products/xbox-series-x-replica-drinks-cooler-10-litres-black-and-green-10242217.html",
     description: "Official Xbox Series X replica drinks cooler with 10-litre capacity, illuminated Xbox logo, USB charging port and 12V car socket support.",
     notes: "Currys UK price checked 8 Nov 2026: £59.99. Holds up to 12 cans and 2 snacks; cools up to 20°C below ambient temperature."
@@ -1072,7 +1072,7 @@ window.wishlistItems = [
     purchased: false,
     store: "Amazon",
     dateAdded: "2026-11-08",
-    image: "",
+    image: "https://images.ctfassets.net/s0lodsnpsezb/660122_M/78063be50078de1eeb7fc8743e983535/660122.png",
     link: "https://amzn.eu/d/0ewPtMVx",
     description: "675g sharing bag of crispy-centred milk chocolate sweets.",
     notes: "UK reference price £10.50 at Tesco; Amazon short link supplied."
@@ -1088,7 +1088,7 @@ window.wishlistItems = [
     purchased: false,
     store: "Amazon",
     dateAdded: "2026-11-08",
-    image: "",
+    image: "https://www.prisjakt.nu/offers-images/06bae1ab4903785097f67431b9266052.jpg",
     link: "https://amzn.eu/d/0gOph9xQ",
     description: "24-pack of 330ml Pepsi Max cola cans.",
     notes: "Amazon UK price checked 8 Nov 2026."
@@ -1104,7 +1104,7 @@ window.wishlistItems = [
     purchased: false,
     store: "Amazon",
     dateAdded: "2026-11-08",
-    image: "",
+    image: "https://i.ebayimg.com/images/g/wrIAAeSw32dpvnNX/s-l1600.jpg",
     link: "https://amzn.eu/d/071tAhH5",
     description: "Multipack of eight XL bottles of sugar-free peppermint mints.",
     notes: "PriceSpy UK listing showed £23.32 at Amazon; Amazon short link supplied."
@@ -1120,7 +1120,7 @@ window.wishlistItems = [
     purchased: false,
     store: "Amazon",
     dateAdded: "2026-11-08",
-    image: "",
+    image: "https://m.media-amazon.com/images/I/61eN3MCA9zL._SL1000_.jpg",
     link: "https://amzn.eu/d/0i5oXFW1",
     description: "Extra-large 850g Cadbury Dairy Milk chocolate gift bar.",
     notes: "Cadbury Gifts UK price checked 8 Nov 2026: £11.49; Amazon short link supplied."
@@ -1136,7 +1136,7 @@ window.wishlistItems = [
     purchased: false,
     store: "Amazon",
     dateAdded: "2026-11-08",
-    image: "",
+    image: "https://www.sweetgenie.co.uk/app/uploads/2025/04/Sweetzone-Strawberry-Pencils-100-pieces.jpg",
     link: "https://amzn.eu/d/0iMAWUSV",
     description: "Bulk tub of 100 halal strawberry-flavoured soft chewy pencils.",
     notes: "Exact 100-piece product price not verified; Price TBC."
