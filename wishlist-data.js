@@ -1045,4 +1045,20 @@ window.wishlistItems = [
     description: "Two black under-desk cable management trays with no-drill clamp mounts for organising power strips, adapters and cables.",
     notes: ""
   },
+  {
+    name: "XBOX Series X Replica Drinks Cooler - 10 litres, Black & Green",
+    wishlist: "Gaming",
+    category: "Technology",
+    brand: "Xbox / Ukonic",
+    price: 59.99,
+    quantity: 1,
+    priority: "Medium",
+    purchased: false,
+    store: "Currys",
+    dateAdded: "2026-11-08",
+    image: "",
+    link: "https://www.currys.co.uk/products/xbox-series-x-replica-drinks-cooler-10-litres-black-and-green-10242217.html",
+    description: "Official Xbox Series X replica drinks cooler with 10-litre capacity, illuminated Xbox logo, USB charging port and 12V car socket support.",
+    notes: "Currys UK price checked 8 Nov 2026: £59.99. Holds up to 12 cans and 2 snacks; cools up to 20°C below ambient temperature."
+  },
 ];
