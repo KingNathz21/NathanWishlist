@@ -3,31 +3,31 @@
    Change these variables to restyle the whole website.
    ========================= */
 :root {
-  --bg: #f5f2ec;
-  --surface: rgba(255, 255, 255, 0.72);
-  --surface-solid: #ffffff;
-  --text: #171614;
-  --muted: #706d66;
-  --line: rgba(23, 22, 20, 0.10);
-  --accent: #ff5c35;
-  --accent-dark: #d83a16;
-  --accent-soft: #ffe2d9;
-  --shadow: 0 20px 50px rgba(53, 42, 30, 0.10);
+  --bg: #101010;
+  --surface: rgba(28, 28, 28, 0.88);
+  --surface-solid: #202020;
+  --text: #ffffff;
+  --muted: #b8b8b8;
+  --line: rgba(255, 255, 255, 0.12);
+  --accent: #d71920;
+  --accent-dark: #a30f18;
+  --accent-soft: rgba(215, 25, 32, 0.16);
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
   --radius-lg: 28px;
   --radius-md: 20px;
   --radius-sm: 13px;
 }
 
 body.dark {
-  --bg: #11100f;
-  --surface: rgba(31, 29, 27, 0.78);
-  --surface-solid: #1f1d1b;
-  --text: #f8f4ed;
-  --muted: #aaa49b;
-  --line: rgba(255, 255, 255, 0.10);
-  --accent: #ff6f4c;
-  --accent-dark: #ff997f;
-  --accent-soft: rgba(255, 111, 76, 0.16);
+  --bg: #101010;
+  --surface: rgba(28, 28, 28, 0.90);
+  --surface-solid: #202020;
+  --text: #ffffff;
+  --muted: #b8b8b8;
+  --line: rgba(255, 255, 255, 0.12);
+  --accent: #ef3038;
+  --accent-dark: #c51c24;
+  --accent-soft: rgba(239, 48, 56, 0.16);
   --shadow: 0 22px 60px rgba(0, 0, 0, 0.32);
 }
 
@@ -73,7 +73,7 @@ a {
   right: -80px;
   width: 350px;
   height: 350px;
-  background: rgba(255, 92, 53, 0.22);
+  background: rgba(215, 25, 32, 0.22);
 }
 
 .page-glow-two {
@@ -81,7 +81,7 @@ a {
   left: -150px;
   width: 340px;
   height: 340px;
-  background: rgba(119, 170, 255, 0.12);
+  background: rgba(163, 15, 24, 0.16);
 }
 
 .site-header {
@@ -398,7 +398,7 @@ main {
 }
 
 .badge.priority-high {
-  background: #171614;
+  background: #a30f18;
   color: #ffffff;
 }
 
