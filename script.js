@@ -10,6 +10,7 @@ const totalValue = document.getElementById("totalValue");
 const purchasedCount = document.getElementById("purchasedCount");
 const themeToggle = document.getElementById("themeToggle");
 
+let currentListType = null;
 let selectedWishlist = "All";
 let selectedCategory = "All";
 let searchTerm = "";
@@ -55,6 +56,7 @@ function normaliseItem(item, index) {
 
   return {
     ...safeItem,
+    listType: safeItem.listType === "christmas" ? "christmas" : "main",
     name: cleanText(safeItem.name, `Wishlist item ${index + 1}`),
     wishlist: cleanText(safeItem.wishlist, "General"),
     category: cleanText(safeItem.category, "Other"),
@@ -74,7 +76,7 @@ function normaliseItem(item, index) {
 
 function getItems() {
   const source = Array.isArray(window.wishlistItems) ? window.wishlistItems : [];
-  return source.map(normaliseItem);
+  return source.map(normaliseItem).filter(item => item.listType === currentListType);
 }
 
 function getWishlists() {
@@ -261,8 +263,8 @@ function renderWishlist() {
     resultsText.textContent = "";
     return;
   }
-  emptyState.querySelector("h3").textContent = "No wishes found";
-  emptyState.querySelector("p").textContent = "Try a different search, wishlist or category.";
+  emptyState.querySelector("h3").textContent = currentListType === "christmas" ? "Your Christmas list is waiting" : "No wishes found";
+  emptyState.querySelector("p").textContent = currentListType === "christmas" ? "Your Christmas collection is ready for its first gifts. Items can be added when we connect the Cloudflare database." : "Try a different search, wishlist or category.";
   const items = filteredItems();
   const shownUnits = items.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -400,7 +402,7 @@ async function exportWishlistPdf() {
     const units = items.reduce((sum, item) => sum + item.quantity, 0);
 
     function addHeader(firstPage) {
-      pdf.setFillColor(30, 54, 103);
+      pdf.setFillColor(180, 20, 29);
       pdf.roundedRect(margin, 12, contentWidth, firstPage ? 37 : 21, 4, 4, "F");
       pdf.setTextColor(255, 255, 255);
       pdf.setFont("helvetica", "bold");
@@ -408,7 +410,7 @@ async function exportWishlistPdf() {
       pdf.text("Nathan's Wishlist", margin + 6, firstPage ? 23 : 25);
       pdf.setFont("helvetica", "normal");
       pdf.setFontSize(8.5);
-      pdf.setTextColor(220, 230, 250);
+      pdf.setTextColor(255, 225, 225);
       if (firstPage) {
         pdf.text("YOUR PERSONAL COLLECTION  •  " + new Date().toLocaleDateString("en-GB"), margin + 6, 30);
         pdf.setFont("helvetica", "bold");
@@ -447,7 +449,7 @@ async function exportWishlistPdf() {
         } catch (error) {
           pdf.setFont("helvetica", "bold");
           pdf.setFontSize(16);
-          pdf.setTextColor(49, 87, 164);
+          pdf.setTextColor(190, 25, 35);
           pdf.text((item.name.charAt(0) || "?").toUpperCase(), imageX + imageSize / 2, y + 21, { align: "center" });
         }
       } else {
@@ -460,7 +462,7 @@ async function exportWishlistPdf() {
       const validLink = /^https?:\/\//i.test(item.link) ? item.link : undefined;
       pdf.setFont("helvetica", "bold");
       pdf.setFontSize(10.5);
-      pdf.setTextColor(39, 75, 145);
+      pdf.setTextColor(190, 25, 35);
       const titleY = y + 8;
       pdf.text(nameLines, textX, titleY, validLink ? { url: validLink } : {});
       let detailY = titleY + nameLines.length * 4.6 + 1;
@@ -560,6 +562,35 @@ if (savedTheme) {
 } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
   setTheme("dark");
 }
+
+function selectList(type) {
+  if (!["christmas", "main"].includes(type)) return;
+  currentListType = type;
+  document.body.classList.add("list-selected");
+  document.querySelector(".hero h1").innerHTML = type === "christmas"
+    ? 'The Christmas list.<br><span>Make it memorable.</span>'
+    : 'A wishlist that feels<br><span>worth wishing for.</span>';
+  document.querySelector(".hero-description").textContent = type === "christmas"
+    ? "Christmas gift ideas, all together in one place."
+    : "Your ongoing collection of things worth saving for.";
+  document.querySelector(".section-heading h2").textContent = type === "christmas" ? "Christmas gifts" : "Main wishlist";
+  selectedWishlist = "All";
+  selectedCategory = "All";
+  searchTerm = "";
+  if (searchInput) searchInput.value = "";
+  renderFilters();
+  updateStats();
+  renderWishlist();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+document.getElementById("openChristmas")?.addEventListener("click", () => selectList("christmas"));
+document.getElementById("openMain")?.addEventListener("click", () => selectList("main"));
+document.getElementById("changeList")?.addEventListener("click", () => {
+  document.body.classList.remove("list-selected");
+  currentListType = null;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 renderFilters();
 updateStats();
