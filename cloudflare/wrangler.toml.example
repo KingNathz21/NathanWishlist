@@ -1,0 +1,8 @@
+name = "nathan-wishlist-api"
+main = "worker.js"
+compatibility_date = "2026-11-16"
+
+[[d1_databases]]
+binding = "WISHLIST_DB"
+database_name = "nathan-wishlist"
+database_id = "REPLACE_WITH_THE_NEW_D1_DATABASE_ID"
