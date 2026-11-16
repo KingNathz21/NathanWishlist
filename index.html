@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Nathan's personal wishlist" />
-  <meta name="theme-color" content="#3157a4" />
+  <meta name="theme-color" content="#D71920" />
   <title>Nathan's Wishlist</title>
   <link rel="icon" type="image/png" href="B2EC1CE9-D68A-472B-878F-BD883CFFA08C.png" />
   <link rel="apple-touch-icon" href="B2EC1CE9-D68A-472B-878F-BD883CFFA08C.png" />
@@ -14,216 +14,105 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     :root {
-      --bg: #eef3fb;
-      --surface: rgba(255, 255, 255, 0.82);
-      --surface-solid: #ffffff;
-      --text: #15213a;
-      --muted: #64718a;
-      --line: rgba(49, 87, 164, 0.15);
-      --accent: #3157a4;
-      --accent-dark: #203d7b;
-      --accent-soft: #dce7fa;
-      --shadow: 0 20px 50px rgba(31, 61, 121, 0.13);
+      --bg: #101010;
+      --surface: rgba(28, 28, 28, 0.88);
+      --surface-solid: #202020;
+      --text: #ffffff;
+      --muted: #b8b8b8;
+      --line: rgba(255,255,255,0.12);
+      --accent: #d71920;
+      --accent-dark: #a30f18;
+      --accent-soft: rgba(215,25,32,0.16);
+      --shadow: 0 20px 50px rgba(0,0,0,0.28);
     }
-
     body.dark {
-      --bg: #0e1729;
-      --surface: rgba(23, 36, 62, 0.84);
-      --surface-solid: #17243e;
-      --text: #f5f8ff;
-      --muted: #aebbd2;
-      --line: rgba(164, 188, 232, 0.16);
-      --accent: #85a9ef;
-      --accent-dark: #b6cdf7;
-      --accent-soft: rgba(96, 137, 219, 0.2);
-      --shadow: 0 22px 60px rgba(0, 0, 0, 0.34);
+      --bg: #101010;
+      --surface: rgba(28,28,28,0.9);
+      --surface-solid: #202020;
+      --text: #fff;
+      --muted: #b8b8b8;
+      --line: rgba(255,255,255,0.12);
+      --accent: #ef3038;
+      --accent-dark: #c51c24;
+      --accent-soft: rgba(239,48,56,0.16);
     }
-
     body {
       background:
-        radial-gradient(circle at 92% 5%, rgba(89, 130, 210, 0.18), transparent 28rem),
-        radial-gradient(circle at 5% 85%, rgba(150, 181, 235, 0.17), transparent 26rem),
+        radial-gradient(circle at 92% 5%, rgba(215,25,32,0.19), transparent 28rem),
+        radial-gradient(circle at 5% 85%, rgba(163,15,24,0.12), transparent 26rem),
         var(--bg);
     }
-
-    .page-glow-one {
-      background: rgba(76, 117, 199, 0.2);
-    }
-
-    .page-glow-two {
-      background: rgba(139, 172, 231, 0.17);
-    }
-
-    .brand {
-      gap: 13px;
-    }
-
+    .page-glow-one { background: rgba(215,25,32,0.22); }
+    .page-glow-two { background: rgba(163,15,24,0.16); }
+    .brand { gap: 13px; }
     .export-button {
-      min-height: 43px;
-      padding: 0 17px;
-      border: 0;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #fff;
-      font: inherit;
-      font-size: 0.88rem;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 7px 18px rgba(49, 87, 164, 0.18);
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      min-height:43px;padding:0 17px;border:0;border-radius:999px;
+      background:var(--accent);color:#fff;font:inherit;font-size:.88rem;
+      font-weight:700;cursor:pointer;box-shadow:0 7px 18px rgba(215,25,32,.2);
     }
-
-    .export-button:hover {
-      transform: translateY(-2px);
-      opacity: 0.92;
-    }
-
-    @media (max-width: 480px) {
-      .export-button {
-        min-height: 39px;
-        padding: 0 12px;
-        font-size: 0.78rem;
-      }
-
-      .header-actions {
-        gap: 7px;
-      }
-    }
-
-    .brand-logo {
-      width: 52px;
-      height: 52px;
-      display: block;
-      object-fit: contain;
-      border-radius: 50%;
-      background: #fff;
-      border: 2px solid rgba(255, 255, 255, 0.9);
-      box-shadow: 0 8px 22px rgba(31, 61, 121, 0.2);
-    }
-
-    .brand-name {
-      display: grid;
-      line-height: 1.05;
-    }
-
-    .brand-name small {
-      margin-top: 4px;
-      color: var(--muted);
-      font-family: "DM Sans", sans-serif;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .hero {
-      position: relative;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: 24%;
-      top: 25px;
-      z-index: -1;
-      width: 210px;
-      height: 210px;
-      background: url("B2EC1CE9-D68A-472B-878F-BD883CFFA08C.png") center / contain no-repeat;
-      opacity: 0.08;
-      filter: saturate(1.1);
-      pointer-events: none;
-    }
-
-    .stats-panel,
-    .controls,
-    .wish-card {
-      border-color: rgba(49, 87, 164, 0.16);
-    }
-
-    .filter-pill:hover,
-    .filter-pill.active {
-      border-color: var(--accent);
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .badge.priority-high {
-      background: var(--accent-dark);
-    }
-
-    .filter-groups {
-      display: grid;
-      gap: 10px;
-      min-width: 0;
-    }
-
-    .filter-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 0;
-    }
-
-    .filter-group-label {
-      flex: 0 0 auto;
-      color: var(--muted);
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .filter-group .filter-pills {
-      min-width: 0;
-    }
-
-    .item-notes {
-      margin: -8px 0 20px;
-      padding: 12px 14px;
-      border-left: 3px solid var(--accent);
-      border-radius: 0 12px 12px 0;
-      background: var(--accent-soft);
-      color: var(--text);
-      font-size: 0.86rem;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 1050px) {
-      .filter-groups {
-        grid-column: 1 / -1;
-        grid-row: 2;
-      }
-    }
-
-    @media (max-width: 680px) {
-      .brand-logo {
-        width: 44px;
-        height: 44px;
-      }
-
-      .brand-name small {
-        display: none;
-      }
-
-      .hero::after {
-        right: -20px;
-        top: 20px;
-        width: 155px;
-        height: 155px;
-      }
-
-      .filter-groups {
-        grid-column: auto;
-        grid-row: auto;
-      }
-
-      .filter-group {
-        display: grid;
-      }
+    .export-button:hover { transform:translateY(-2px);opacity:.92; }
+    .brand-logo { width:52px;height:52px;display:block;object-fit:contain;border-radius:50%;background:#fff;border:2px solid rgba(255,255,255,.9); }
+    .brand-name { display:grid;line-height:1.05; }
+    .brand-name small { margin-top:4px;color:var(--muted);font-family:"DM Sans",sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase; }
+    .hero { position:relative; }
+    .hero::after { content:"";position:absolute;right:24%;top:25px;z-index:-1;width:210px;height:210px;background:url("B2EC1CE9-D68A-472B-878F-BD883CFFA08C.png") center/contain no-repeat;opacity:.07;pointer-events:none; }
+    .stats-panel,.controls,.wish-card { border-color:rgba(215,25,32,.18); }
+    .filter-pill:hover,.filter-pill.active { border-color:var(--accent);background:var(--accent);color:#fff; }
+    .badge.priority-high { background:var(--accent-dark);color:#fff; }
+    .filter-groups { display:grid;gap:10px;min-width:0; }
+    .filter-group { display:flex;align-items:center;gap:10px;min-width:0; }
+    .filter-group-label { flex:0 0 auto;color:var(--muted);font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase; }
+    .filter-group .filter-pills { min-width:0; }
+    .item-notes { margin:-8px 0 20px;padding:12px 14px;border-left:3px solid var(--accent);border-radius:0 12px 12px 0;background:var(--accent-soft);color:var(--text);font-size:.86rem;line-height:1.5; }
+    .list-chooser { width:min(1080px,calc(100% - 32px));min-height:100svh;margin:auto;display:grid;align-content:center;padding:56px 0; }
+    .chooser-kicker { color:#ef4444;font-size:.75rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase; }
+    .chooser-title { margin:12px 0 12px;font-family:"Space Grotesk",sans-serif;font-size:clamp(2.7rem,8vw,5.8rem);line-height:.98;letter-spacing:-.055em; }
+    .chooser-title span { color:#e32630; }
+    .chooser-intro { max-width:600px;color:#b8b8b8;line-height:1.7;font-size:1.05rem; }
+    .chooser-cards { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:38px; }
+    .chooser-card { position:relative;min-height:230px;padding:28px;text-align:left;color:#fff;background:linear-gradient(145deg,#252525,#151515);border:1px solid rgba(255,255,255,.12);border-radius:24px;cursor:pointer;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s; }
+    .chooser-card:hover { transform:translateY(-5px);border-color:#d71920;box-shadow:0 18px 45px rgba(215,25,32,.16); }
+    .chooser-card::after { content:"";position:absolute;width:190px;height:190px;right:-45px;bottom:-75px;border-radius:50%;background:rgba(215,25,32,.14); }
+    .chooser-icon { display:block;font-size:2rem;margin-bottom:24px; }
+    .chooser-card strong { display:block;font-family:"Space Grotesk",sans-serif;font-size:1.7rem;margin-bottom:9px; }
+    .chooser-card span:last-child { color:#b8b8b8;line-height:1.5; }
+    .chooser-card .chooser-arrow { position:absolute;right:25px;top:25px;color:#ef3038;font-size:1.5rem; }
+    .change-list { min-height:39px;padding:0 13px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text);cursor:pointer; }
+    body:not(.list-selected) .site-header,body:not(.list-selected) main,body:not(.list-selected) footer { display:none; }
+    body.list-selected #listChooser { display:none; }
+    @media(max-width:680px) {
+      .export-button{min-height:39px;padding:0 12px;font-size:.78rem}
+      .header-actions{gap:7px}
+      .brand-logo{width:44px;height:44px}
+      .brand-name small{display:none}
+      .hero::after{right:-20px;top:20px;width:155px;height:155px}
+      .filter-groups{grid-column:auto;grid-row:auto}
+      .filter-group{display:grid}
+      .chooser-cards{grid-template-columns:1fr}
+      .chooser-card{min-height:190px}
     }
   </style>
 </head>
 <body>
+  <section id="listChooser" class="list-chooser" aria-labelledby="chooserTitle">
+    <p class="chooser-kicker">NATHAN'S WISHLIST</p>
+    <h1 id="chooserTitle" class="chooser-title">A little something<br><span>to look forward to.</span></h1>
+    <p class="chooser-intro">Choose which collection you'd like to explore. Christmas gifts and everyday favourites now have their own space.</p>
+    <div class="chooser-cards">
+      <button class="chooser-card" id="openChristmas" type="button">
+        <span class="chooser-arrow" aria-hidden="true">↗</span>
+        <span class="chooser-icon" aria-hidden="true">🎄</span>
+        <strong>Christmas Wishlist</strong>
+        <span>Gift ideas, festive favourites and everything on the Christmas list.</span>
+      </button>
+      <button class="chooser-card" id="openMain" type="button">
+        <span class="chooser-arrow" aria-hidden="true">↗</span>
+        <span class="chooser-icon" aria-hidden="true">★</span>
+        <strong>Main Wishlist</strong>
+        <span>The ongoing collection of things worth saving for.</span>
+      </button>
+    </div>
+  </section>
   <div class="page-glow page-glow-one"></div>
   <div class="page-glow page-glow-two"></div>
 
@@ -237,6 +126,7 @@
     </a>
 
     <div class="header-actions">
+      <button id="changeList" class="change-list" type="button">← Change list</button>
       <button id="exportPdf" class="export-button" type="button">Export PDF ↓</button>
       <button id="themeToggle" class="icon-button" type="button" aria-label="Toggle dark mode">
         <span class="theme-icon">☾</span>
