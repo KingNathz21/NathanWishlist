@@ -45,6 +45,13 @@
     .page-glow-one { background: rgba(215,25,32,0.22); }
     .page-glow-two { background: rgba(163,15,24,0.16); }
     .brand { gap: 13px; }
+    .site-nav { display:flex; align-items:center; gap:7px; margin-left:auto; margin-right:18px; }
+    .nav-link { border:1px solid var(--line); border-radius:999px; padding:9px 13px; background:var(--surface); color:var(--text); text-decoration:none; font:700 .82rem "DM Sans",sans-serif; cursor:pointer; }
+    .nav-link:hover,.nav-link.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+    footer nav { display:flex; justify-content:center; flex-wrap:wrap; gap:18px; margin-top:12px; }
+    footer nav a { color:var(--muted); text-decoration:none; font-size:.85rem; }
+    footer nav a:hover { color:var(--accent); }
+    @media(max-width:760px) { .site-header { flex-wrap:wrap; padding:12px 0; gap:10px; } .site-nav { order:3; width:100%; margin:0; } .site-nav .nav-link { flex:1; text-align:center; } .header-actions { margin-left:auto; } }
     .export-button {
       min-height:43px;padding:0 17px;border:0;border-radius:999px;
       background:var(--accent);color:#fff;font:inherit;font-size:.88rem;
@@ -125,6 +132,7 @@
       </span>
     </a>
 
+    <nav class="site-nav" aria-label="Main navigation"><button type="button" class="nav-link" id="navMain">Main</button><button type="button" class="nav-link" id="navChristmas">Christmas</button><a class="nav-link nav-admin" href="admin.html">Admin ↗</a></nav>
     <div class="header-actions">
       <button id="changeList" class="change-list" type="button">← Change list</button>
       <button id="exportPdf" class="export-button" type="button">Export PDF ↓</button>
@@ -208,7 +216,7 @@
 
   <footer>
     <p>Made for the things worth saving for.</p>
-    <a class="admin-footer-link" href="admin.html">Wishlist administration</a>
+    <nav aria-label="Footer navigation"><a href="index.html">Home</a><a href="index.html?list=main">Main wishlist</a><a href="index.html?list=christmas">Christmas wishlist</a><a class="admin-footer-link" href="admin.html">Private administration ↗</a></nav>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js" defer></script>
