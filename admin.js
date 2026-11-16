@@ -1,6 +1,6 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
 import {getAuth,GoogleAuthProvider,signInWithPopup,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
-const ADMIN_UID="Jx8xZkBIpXgCnPRr409QGZLyrNK2";
+const ADMIN_UID="sWngMN6VmfOBCwlLqbRIaSPp23u2";
 const API=(window.WISHLIST_API_BASE||"").replace(/\/$/,"");
 const $=id=>document.getElementById(id);
 const loginPanel=$("loginPanel"),dashboard=$("dashboard"),message=$("authMessage"),status=$("adminStatus"),form=$("itemForm"),itemsList=$("itemsList");
