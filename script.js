@@ -35,6 +35,11 @@ function cleanText(value, fallback = "") {
   return text || fallback;
 }
 
+function safeHttpUrl(value) {
+  try { const url = new URL(String(value || "")); return ["http:", "https:"].includes(url.protocol) ? url.href : ""; }
+  catch { return ""; }
+}
+
 function safePrice(value) {
   if (value === null || value === undefined || value === "") return null;
   const price = Number(value);
@@ -65,7 +70,7 @@ function normaliseItem(item, index) {
     description: cleanText(safeItem.description),
     notes: cleanText(safeItem.notes),
     image: cleanText(safeItem.image),
-    link: cleanText(safeItem.link),
+    link: safeHttpUrl(safeItem.link),
     dateAdded: cleanText(safeItem.dateAdded),
     price: safePrice(safeItem.price),
     quantity: getQuantity(safeItem),
@@ -139,8 +144,8 @@ function sortItems(items) {
   const priorityRank = { High: 1, Medium: 2, Low: 3 };
 
   return [...items].sort((a, b) => {
-    if (sortMode === "price-low") return a.price - b.price;
-    if (sortMode === "price-high") return b.price - a.price;
+    if (sortMode === "price-low") return (a.price ?? Infinity) - (b.price ?? Infinity);
+    if (sortMode === "price-high") return (b.price ?? -Infinity) - (a.price ?? -Infinity);
     if (sortMode === "priority") return priorityRank[a.priority] - priorityRank[b.priority];
     if (sortMode === "newest") return new Date(b.dateAdded || 0) - new Date(a.dateAdded || 0);
 
@@ -176,12 +181,13 @@ function filteredItems() {
 }
 
 function imageMarkup(item) {
+  const safeImage = safeHttpUrl(item.image);
   const initial = escapeHtml(item.name.charAt(0).toUpperCase() || "?");
 
-  if (item.image) {
+  if (safeImage) {
     return `
       <img
-        src="${escapeHtml(item.image)}"
+        src="${escapeHtml(safeImage)}"
         alt="${escapeHtml(item.name)}"
         loading="lazy"
         onerror="this.style.display='none'; this.nextElementSibling.hidden=false;"
@@ -194,7 +200,8 @@ function imageMarkup(item) {
 }
 
 function cardMarkup(item) {
-  const linkAvailable = Boolean(item.link);
+  const safeLink = safeHttpUrl(item.link);
+  const linkAvailable = Boolean(safeLink);
   const quantity = item.quantity;
   const unitPrice = item.price;
   const lineTotal = unitPrice === null ? null : unitPrice * quantity;
@@ -242,7 +249,7 @@ function cardMarkup(item) {
 
           <a
             class="view-button ${linkAvailable ? "" : "disabled"}"
-            href="${linkAvailable ? escapeHtml(item.link) : "#"}"
+            href="${linkAvailable ? escapeHtml(safeLink) : "#"}"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -563,10 +570,13 @@ if (savedTheme) {
   setTheme("dark");
 }
 
-async function selectList(type) {
+async function selectList(type, updateUrl = true) {
   if (!["christmas", "main"].includes(type)) return;
+  if (updateUrl) history.pushState({ list: type }, "", "?list=" + type);
   currentListType = type;
   document.body.classList.add("list-selected");
+  document.getElementById("navMain")?.classList.toggle("active", type === "main");
+  document.getElementById("navChristmas")?.classList.toggle("active", type === "christmas");
   document.querySelector(".hero h1").innerHTML = type === "christmas"
     ? 'The Christmas list.<br><span>Make it memorable.</span>'
     : 'A wishlist that feels<br><span>worth wishing for.</span>';
@@ -596,12 +606,24 @@ async function selectList(type) {
 
 document.getElementById("openChristmas")?.addEventListener("click", () => selectList("christmas"));
 document.getElementById("openMain")?.addEventListener("click", () => selectList("main"));
+document.getElementById("navChristmas")?.addEventListener("click", () => selectList("christmas"));
+document.getElementById("navMain")?.addEventListener("click", () => selectList("main"));
 document.getElementById("changeList")?.addEventListener("click", () => {
+  history.pushState({}, "", location.pathname);
   document.body.classList.remove("list-selected");
+  document.getElementById("navMain")?.classList.remove("active");
+  document.getElementById("navChristmas")?.classList.remove("active");
   currentListType = null;
   window.scrollTo({ top: 0, behavior: "smooth" });
+});
+window.addEventListener("popstate", () => {
+  const requested = new URLSearchParams(location.search).get("list");
+  if (["main", "christmas"].includes(requested)) selectList(requested, false);
+  else { document.body.classList.remove("list-selected"); currentListType = null; }
 });
 
 renderFilters();
 updateStats();
 renderWishlist();
+const initialList = new URLSearchParams(location.search).get("list");
+if (["main", "christmas"].includes(initialList)) selectList(initialList, false);
