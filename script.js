@@ -580,7 +580,7 @@ async function selectList(type) {
   if (searchInput) searchInput.value = "";
   if (window.WISHLIST_API_BASE) {
     try {
-      const response = await fetch(window.WISHLIST_API_BASE.replace(/\\/$/, "") + "/api/items?list=" + type);
+      const response = await fetch(window.WISHLIST_API_BASE.replace(/\/$/, "") + "/api/items?list=" + type);
       if (!response.ok) throw new Error("Wishlist API returned " + response.status);
       const data = await response.json();
       window.wishlistItems = Array.isArray(data.items) ? data.items : [];
