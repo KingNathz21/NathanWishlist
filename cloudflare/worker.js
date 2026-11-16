@@ -16,7 +16,7 @@ function decodePart(value) {
 }
 let firebaseKeysPromise;
 async function verifyAdmin(request, env) {
-  const token=(request.headers.get("Authorization")||"").replace(/^Bearer\\s+/i,"");
+  const token=(request.headers.get("Authorization")||"").replace(/^Bearer\s+/i,"");
   if(!token) throw new Error("Please sign in with Google.");
   const parts=token.split(".");
   if(parts.length!==3) throw new Error("Invalid sign-in token.");
