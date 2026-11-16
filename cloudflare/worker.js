@@ -1,5 +1,5 @@
 const ALLOWED_ORIGINS = new Set(["https://kingnathz21.github.io"]);
-const ADMIN_UID = "Jx8xZkBIpXgCnPRr409QGZLyrNK2";
+const ADMIN_UID = "sWngMN6VmfOBCwlLqbRIaSPp23u2";
 const FIREBASE_PROJECT_ID = "rflofficial";
 
 function response(data, status, origin) {
