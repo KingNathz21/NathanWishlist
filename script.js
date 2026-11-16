@@ -563,7 +563,7 @@ if (savedTheme) {
   setTheme("dark");
 }
 
-function selectList(type) {
+async function selectList(type) {
   if (!["christmas", "main"].includes(type)) return;
   currentListType = type;
   document.body.classList.add("list-selected");
@@ -578,6 +578,16 @@ function selectList(type) {
   selectedCategory = "All";
   searchTerm = "";
   if (searchInput) searchInput.value = "";
+  if (window.WISHLIST_API_BASE) {
+    try {
+      const response = await fetch(window.WISHLIST_API_BASE.replace(/\\/$/, "") + "/api/items?list=" + type);
+      if (!response.ok) throw new Error("Wishlist API returned " + response.status);
+      const data = await response.json();
+      window.wishlistItems = Array.isArray(data.items) ? data.items : [];
+    } catch (error) {
+      console.warn("Database wishlist could not be loaded; showing the saved static copy.", error);
+    }
+  }
   renderFilters();
   updateStats();
   renderWishlist();
