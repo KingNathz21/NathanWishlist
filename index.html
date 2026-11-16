@@ -84,6 +84,10 @@
     .chooser-card strong { display:block;font-family:"Space Grotesk",sans-serif;font-size:1.7rem;margin-bottom:9px; }
     .chooser-card span:last-child { color:#b8b8b8;line-height:1.5; }
     .chooser-card .chooser-arrow { position:absolute;right:25px;top:25px;color:#ef3038;font-size:1.5rem; }
+    .chooser-admin-wrap { display:grid; justify-items:center; gap:9px; margin-top:30px; }
+    .chooser-admin-link { display:inline-flex; align-items:center; gap:11px; padding:12px 19px; border:1px solid rgba(215,25,32,.42); border-radius:999px; color:#fff; background:rgba(215,25,32,.12); text-decoration:none; font-size:.9rem; font-weight:700; transition:background .2s,border-color .2s,transform .2s; }
+    .chooser-admin-link:hover { background:#d71920; border-color:#d71920; transform:translateY(-2px); }
+    .chooser-admin-wrap p { margin:0; color:#929292; font-size:.76rem; text-align:center; }
     .change-list { min-height:39px;padding:0 13px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text);cursor:pointer; }
     body:not(.list-selected) .site-header,body:not(.list-selected) main,body:not(.list-selected) footer { display:none; }
     body.list-selected #listChooser { display:none; }
@@ -118,6 +122,10 @@
         <strong>Main Wishlist</strong>
         <span>The ongoing collection of things worth saving for.</span>
       </button>
+    </div>
+    <div class="chooser-admin-wrap">
+      <a class="chooser-admin-link" href="admin.html"><span aria-hidden="true">⚙</span> Wishlist administration <span aria-hidden="true">↗</span></a>
+      <p>Private access · Sign in with your authorised Google account</p>
     </div>
   </section>
   <div class="page-glow page-glow-one"></div>
