@@ -598,3 +598,45 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Wishlist responsive refinements */
+.admin-footer-link{display:inline-flex;margin-top:10px;color:var(--muted);font-size:.78rem;text-decoration:none;opacity:.72;transition:color .2s,opacity .2s}
+.admin-footer-link:hover{color:var(--accent);opacity:1}
+@media(min-width:1100px){.wishlist-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}.wish-card{min-width:0}.image-wrap{aspect-ratio:16/10}.card-body{padding:24px}}
+@media(min-width:681px) and (max-width:1050px){.wishlist-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.controls{grid-template-columns:minmax(0,1fr) minmax(170px,.4fr)}.filter-groups{grid-column:1/-1;grid-row:2}.sort-select{grid-column:2;grid-row:1}}
+@media(max-width:680px){
+ .site-header{width:calc(100% - 24px);gap:10px;align-items:center;flex-wrap:wrap;padding:12px 0}
+ .brand{font-size:.94rem;min-width:0}
+ .header-actions{margin-left:auto;gap:6px;align-items:center}
+ .change-list{font-size:.72rem;padding:0 10px}
+ .export-button{font-size:.72rem;padding:0 11px;min-height:38px}
+ .icon-button{width:38px;height:38px}
+ .hero{padding:42px 0 34px;gap:26px}
+ .hero h1{font-size:clamp(2.55rem,12vw,3.8rem);line-height:1.02}
+ .hero-description{font-size:.94rem;margin-top:18px}
+ .stats-panel{grid-template-columns:repeat(3,minmax(0,1fr));gap:1px}
+ .stat{min-height:74px;padding:10px 9px;display:grid;gap:5px;align-content:center}
+ .stat-label{font-size:.68rem}
+ .stat strong{font-size:1.08rem}
+ .controls{padding:11px;border-radius:16px;gap:11px}
+ .filter-groups{gap:12px}
+ .filter-group{display:grid;gap:7px}
+ .filter-group-label{font-size:.67rem}
+ .filter-pills{gap:6px}
+ .filter-pill{height:36px;padding:0 12px;font-size:.76rem}
+ .sort-select,.search-wrap input{height:44px;font-size:.88rem}
+ .wishlist-section{padding:42px 0 26px}
+ .section-heading h2{font-size:2rem}
+ .wishlist-grid{grid-template-columns:minmax(0,1fr);gap:15px}
+ .wish-card{border-radius:18px}
+ .image-wrap{aspect-ratio:16/9}
+ .card-body{padding:17px}
+ .wish-card h3{font-size:1.18rem}
+ .card-description{min-height:0;margin:10px 0 16px;font-size:.86rem}
+ .card-footer{align-items:flex-end;gap:9px}
+ .view-button{min-height:40px;padding:0 12px;font-size:.78rem}
+ .card-badges{top:9px;left:9px;gap:5px}
+ .badge{min-height:25px;padding:0 8px;font-size:.65rem}
+ footer{margin-top:32px;padding:26px 0 34px}
+}
