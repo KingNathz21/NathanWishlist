@@ -1,5 +1,6 @@
 const ALLOWED_ORIGINS = new Set(["https://kingnathz21.github.io"]);
 const ADMIN_UID = "Jx8xZkBIpXgCnPRr409QGZLyrNK2";
+const FIREBASE_PROJECT_ID = "rflofficial";
 
 function response(data, status, origin) {
   return new Response(JSON.stringify(data), { status, headers: {
@@ -16,7 +17,7 @@ function decodePart(value) {
 let firebaseKeysPromise;
 async function verifyAdmin(request, env) {
   const token=(request.headers.get("Authorization")||"").replace(/^Bearer\\s+/i,"");
-  if(!token || !env.FIREBASE_PROJECT_ID) throw new Error("Please sign in with Google.");
+  if(!token) throw new Error("Please sign in with Google.");
   const parts=token.split(".");
   if(parts.length!==3) throw new Error("Invalid sign-in token.");
   const decoder=new TextDecoder();
@@ -29,9 +30,9 @@ async function verifyAdmin(request, env) {
   if(!jwk) throw new Error("Unknown Firebase signing key.");
   const key=await crypto.subtle.importKey("jwk",jwk,{name:"RSASSA-PKCS1-v1_5",hash:"SHA-256"},false,["verify"]);
   const valid=await crypto.subtle.verify("RSASSA-PKCS1-v1_5",key,decodePart(parts[2]),new TextEncoder().encode(parts[0]+"."+parts[1]));
-  const now=Math.floor(Date.now()/1000),project=env.FIREBASE_PROJECT_ID;
+  const now=Math.floor(Date.now()/1000),project=FIREBASE_PROJECT_ID;
   if(!valid||claims.aud!==project||claims.iss!=="https://securetoken.google.com/"+project||typeof claims.sub!=="string"||claims.exp<=now||claims.iat>now+300) throw new Error("Sign-in expired. Please sign in again.");
-  if(claims.sub!==ADMIN_UID || (env.ADMIN_UID && claims.sub!==env.ADMIN_UID)) throw new Error("This Google account is not authorised to manage this wishlist.");
+  if(claims.sub!==ADMIN_UID) throw new Error("This Google account is not authorised to manage this wishlist.");
   return claims.sub;
 }
 async function readBody(request) {
