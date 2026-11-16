@@ -26,11 +26,11 @@ function normalise(b){
  const price=b.price===""||b.price==null?null:Number(b.price);if(price!==null&&(!Number.isFinite(price)||price<0||price>1000000))throw new Error("Enter a valid price.");
  return {lists,name,wishlist:clean(b.wishlist,80)||"General",category:clean(b.category,80)||"Other",brand:clean(b.brand,120),store:clean(b.store,120),description:clean(b.description,1000),notes:clean(b.notes,1000),image:clean(b.image,1500),link:clean(b.link,1500),dateAdded:clean(b.dateAdded,30)||new Date().toISOString().slice(0,10),price,quantity:Math.max(1,Math.min(99,Math.floor(Number(b.quantity)||1))),priority:["High","Medium","Low"].includes(b.priority)?b.priority:"Medium",purchased:b.purchased===true};
 }
-const fields="id,group_id AS groupId,list_type AS listType,name,wishlist,category,brand,store,description,notes,image,link,date_added AS dateAdded,price,quantity,priority,purchased,archived";
+const fields="id,group_id AS groupId,list_type AS listType,name,wishlist,category,brand,store,description,notes,image,link,date_added AS dateAdded,price,quantity,priority,purchased,archived,(SELECT GROUP_CONCAT(list_type) FROM wishlist_items AS related WHERE related.group_id=wishlist_items.group_id) AS listTypesCsv";
 async function listItems(env,list){
- const q=list==="archived"?"SELECT "+fields+" FROM wishlist_items WHERE archived=1 ORDER BY updated_at DESC":"SELECT "+fields+" FROM wishlist_items WHERE list_type=? AND archived=0 ORDER BY purchased ASC,created_at DESC";
+ const q=list==="archived"?"SELECT "+fields+" FROM wishlist_items WHERE archived=1 GROUP BY group_id ORDER BY updated_at DESC":"SELECT "+fields+" FROM wishlist_items WHERE list_type=? AND archived=0 ORDER BY purchased ASC,created_at DESC";
  const r=list==="archived"?await env.WISHLIST_DB.prepare(q).all():await env.WISHLIST_DB.prepare(q).bind(list).all();
- return r.results.map(x=>({...x,purchased:x.purchased===1,archived:x.archived===1}));
+ return r.results.map(x=>({...x,purchased:x.purchased===1,archived:x.archived===1,listTypes:(x.listTypesCsv||x.listType||"").split(",").filter(Boolean)}));
 }
 async function insertItem(env,item,gid,list){return env.WISHLIST_DB.prepare("INSERT INTO wishlist_items(group_id,list_type,name,wishlist,category,brand,store,description,notes,image,link,date_added,price,quantity,priority,purchased) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)").bind(gid,list,item.name,item.wishlist,item.category,item.brand,item.store,item.description,item.notes,item.image,item.link,item.dateAdded,item.price,item.quantity,item.priority,item.purchased?1:0).run();}
 function safeUrl(raw){let u;try{u=new URL(raw);}catch{throw new Error("Enter a valid product URL.");}if(!["http:","https:"].includes(u.protocol)||u.username||u.password||u.hostname==="localhost"||u.hostname.endsWith(".local")||/^\d+(\.\d+){3}$/.test(u.hostname))throw new Error("That URL cannot be fetched.");return u;}
