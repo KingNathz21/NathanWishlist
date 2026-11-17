@@ -213,6 +213,10 @@ function cardMarkup(item) {
         year: "numeric"
       })
     : "";
+  const checkedDate = item.priceCheckedAt ? new Date(item.priceCheckedAt) : null;
+  const formattedCheckedDate = checkedDate && !Number.isNaN(checkedDate.getTime())
+    ? checkedDate.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
+    : "";
   const priorityClass = item.priority.toLowerCase();
 
   return `
@@ -245,6 +249,7 @@ function cardMarkup(item) {
             <strong class="price">${lineTotal === null ? "Price TBC" : money.format(lineTotal)}</strong>
             ${quantity > 1 ? `<div class="card-meta">${money.format(unitPrice)} each · ${quantity} wanted</div>` : ""}
             ${formattedDate ? `<div class="card-meta">Added ${formattedDate}</div>` : ""}
+            ${formattedCheckedDate ? `<div class="card-meta">Price checked ${formattedCheckedDate}</div>` : ""}
           </div>
 
           <a
@@ -570,6 +575,36 @@ if (savedTheme) {
   setTheme("dark");
 }
 
+
+async function refreshWishlistPrices(type) {
+  const apiBase = (window.WISHLIST_API_BASE || "").replace(/\/$/, "");
+  if (!apiBase || !["main", "christmas"].includes(type)) return;
+  try {
+    const response = await fetch(apiBase + "/api/prices/refresh", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ list: type })
+    });
+    if (!response.ok) throw new Error("Price refresh returned " + response.status);
+    const result = await response.json();
+    console.info("Wishlist price check:", result);
+    if (result.updated > 0 && currentListType === type) {
+      const latest = await fetch(apiBase + "/api/items?list=" + type);
+      if (!latest.ok) throw new Error("Could not reload updated prices.");
+      const data = await latest.json();
+      if (currentListType === type && Array.isArray(data.items)) {
+        window.wishlistItems = data.items;
+        renderFilters();
+        updateStats();
+        renderWishlist();
+      }
+    }
+  } catch (error) {
+    // Price checking is deliberately non-blocking: the saved prices remain visible.
+    console.warn("Automatic wishlist price checking was unavailable:", error);
+  }
+}
+
 async function selectList(type, updateUrl = true) {
   if (!["christmas", "main"].includes(type)) return;
   if (updateUrl) history.pushState({ list: type }, "", "?list=" + type);
@@ -588,12 +623,14 @@ async function selectList(type, updateUrl = true) {
   selectedCategory = "All";
   searchTerm = "";
   if (searchInput) searchInput.value = "";
+  let databaseLoaded = false;
   if (window.WISHLIST_API_BASE) {
     try {
       const response = await fetch(window.WISHLIST_API_BASE.replace(/\/$/, "") + "/api/items?list=" + type);
       if (!response.ok) throw new Error("Wishlist API returned " + response.status);
       const data = await response.json();
       window.wishlistItems = Array.isArray(data.items) ? data.items : [];
+      databaseLoaded = true;
     } catch (error) {
       console.warn("Database wishlist could not be loaded; showing the saved static copy.", error);
     }
@@ -602,6 +639,7 @@ async function selectList(type, updateUrl = true) {
   updateStats();
   renderWishlist();
   window.scrollTo({ top: 0, behavior: "smooth" });
+  if (databaseLoaded) void refreshWishlistPrices(type);
 }
 
 document.getElementById("openChristmas")?.addEventListener("click", () => selectList("christmas"));
