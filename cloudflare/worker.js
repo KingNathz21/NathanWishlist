@@ -40,7 +40,7 @@ function priceFromOffer(value){
  return Number.isFinite(n)&&n>0&&n<1000000?n:null;
 }
 function extractCurrentPrice(html){
- const metaAmount=getMeta(html,"product:price:amount")||getMeta(html,"og:price:amount")||getMeta(html,"price");
+ const metaAmount=getMeta(html,"product:price:amount")||getMeta(html,"og:price:amount");
  const metaCurrency=getMeta(html,"product:price:currency")||getMeta(html,"og:price:currency");
  if(metaAmount&&(!metaCurrency||metaCurrency.toUpperCase()==="GBP")){const p=priceFromOffer(metaAmount);if(p!==null)return p;}
  const itemprop=/<[^>]+itemprop=["']price["'][^>]+content=["']([^"']+)["'][^>]*>/i.exec(html)||/<[^>]+content=["']([^"']+)["'][^>]+itemprop=["']price["'][^>]*>/i.exec(html);
