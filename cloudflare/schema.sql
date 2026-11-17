@@ -13,6 +13,8 @@ CREATE TABLE IF NOT EXISTS wishlist_items (
  link TEXT NOT NULL DEFAULT '',
  date_added TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
  price REAL,
+ original_price REAL,
+ price_checked_at TEXT,
  quantity INTEGER NOT NULL DEFAULT 1 CHECK (quantity BETWEEN 1 AND 99),
  priority TEXT NOT NULL DEFAULT 'Medium' CHECK (priority IN ('High','Medium','Low')),
  purchased INTEGER NOT NULL DEFAULT 0 CHECK (purchased IN (0,1)),
