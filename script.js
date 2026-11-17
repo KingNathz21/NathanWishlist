@@ -205,6 +205,9 @@ function cardMarkup(item) {
   const quantity = item.quantity;
   const unitPrice = item.price;
   const lineTotal = unitPrice === null ? null : unitPrice * quantity;
+  const originalUnitPrice = safePrice(item.originalPrice);
+  const originalLineTotal = originalUnitPrice === null ? null : originalUnitPrice * quantity;
+  const priceSaving = originalLineTotal !== null && lineTotal !== null && originalLineTotal - lineTotal > 0.009 ? originalLineTotal - lineTotal : null;
   const date = new Date(item.dateAdded);
   const formattedDate = item.dateAdded && !Number.isNaN(date.getTime())
     ? date.toLocaleDateString("en-GB", {
@@ -247,6 +250,7 @@ function cardMarkup(item) {
         <div class="card-footer">
           <div>
             <strong class="price">${lineTotal === null ? "Price TBC" : money.format(lineTotal)}</strong>
+            ${priceSaving !== null ? `<div class="card-meta"><s>${money.format(originalLineTotal)}</s> · Save ${money.format(priceSaving)}</div>` : ""}
             ${quantity > 1 ? `<div class="card-meta">${money.format(unitPrice)} each · ${quantity} wanted</div>` : ""}
             ${formattedDate ? `<div class="card-meta">Added ${formattedDate}</div>` : ""}
             ${formattedCheckedDate ? `<div class="card-meta">Price checked ${formattedCheckedDate}</div>` : ""}
