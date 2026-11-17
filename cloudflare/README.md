@@ -36,3 +36,24 @@ The Worker verifies Firebase ID-token signatures and permits only the authorised
 - Archive and restore previous wishes.
 - Edit products across both lists; permanent deletion is separate.
 - Product link previews attempt to read Open Graph metadata. Retailers may block automated lookups, so details remain editable.
+
+
+## Automatic product price updates
+
+The public wishlist checks each saved product URL in the background when a Main or Christmas list is opened. A product is checked at most once every 12 hours. The Worker only accepts a price it can identify from retailer product metadata or Schema.org JSON-LD; it never guesses a price from arbitrary page text. Retailers can block automated requests or omit structured pricing, so those products keep their current saved price.
+
+For an existing D1 database, run the one-time migration from this folder:
+
+```powershell
+npx.cmd wrangler d1 execute nathan-wishlist --remote --file=./migrations/0002_price_tracking.sql
+```
+
+The migration records each current price as its protected original price and adds the last-checked timestamp. For a brand-new database, use the updated `schema.sql` instead of running this migration.
+
+After applying the migration, deploy the updated Worker:
+
+```powershell
+npx.cmd wrangler deploy
+```
+
+The admin page also includes **Refresh prices**, which forces a check for the selected wishlist. Failed lookups update only the check timestamp; they do not overwrite the saved price. A successfully detected GBP price updates the current price while leaving the original price intact.
