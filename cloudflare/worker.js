@@ -1,11 +1,11 @@
 const ALLOWED_ORIGINS=new Set(["https://kingnathz21.github.io"]);
-const ADMIN_UID="sWngMN6VmfOBCwlLqbRIaSPp23u2";
+const ADMIN_UID="E74UwZ3YJBRwCcYHipBWBdpaXT43";
 const FIREBASE_PROJECT_ID="rflofficial";
 function response(data,status,origin){return new Response(JSON.stringify(data),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store","Access-Control-Allow-Origin":origin,"Access-Control-Allow-Methods":"GET, POST, PATCH, DELETE, OPTIONS","Access-Control-Allow-Headers":"Content-Type, Authorization","Vary":"Origin","X-Content-Type-Options":"nosniff","X-Frame-Options":"DENY"}});}
 function decodePart(v){const s=v.replace(/-/g,"+").replace(/_/g,"/");return Uint8Array.from(atob(s.padEnd(Math.ceil(s.length/4)*4,"=")),c=>c.charCodeAt(0));}
 let keysPromise;
 async function verifyAdmin(request){
- const token=(request.headers.get("Authorization")||"").replace(/^Bearer\s+/i,"");if(!token)throw new Error("Please sign in with Google.");
+ const token=(request.headers.get("Authorization")||"").replace(/^Bearer\s+/i,"");if(!token)throw new Error("Please sign in with your email and password.");
  const p=token.split(".");if(p.length!==3)throw new Error("Invalid sign-in token.");
  const d=new TextDecoder(),h=JSON.parse(d.decode(decodePart(p[0]))),c=JSON.parse(d.decode(decodePart(p[1])));
  if(h.alg!=="RS256"||!h.kid)throw new Error("Invalid sign-in token.");
@@ -15,7 +15,7 @@ async function verifyAdmin(request){
  const valid=await crypto.subtle.verify("RSASSA-PKCS1-v1_5",key,decodePart(p[2]),new TextEncoder().encode(p[0]+"."+p[1]));
  const now=Math.floor(Date.now()/1000);
  if(!valid||c.aud!==FIREBASE_PROJECT_ID||c.iss!=="https://securetoken.google.com/"+FIREBASE_PROJECT_ID||typeof c.sub!=="string"||c.exp<=now||c.iat>now+300)throw new Error("Sign-in expired. Please sign in again.");
- if(c.sub!==ADMIN_UID)throw new Error("This Google account is not authorised.");
+ if(c.sub!==ADMIN_UID)throw new Error("This account is not authorised.");
 }
 async function readBody(r){if(!(r.headers.get("Content-Type")||"").includes("application/json"))throw new Error("Send JSON data.");const raw=await r.text();if(raw.length>100000)throw new Error("Request too large.");return JSON.parse(raw||"{}");}
 function clean(v,n=500){return String(v??"").trim().slice(0,n);}
